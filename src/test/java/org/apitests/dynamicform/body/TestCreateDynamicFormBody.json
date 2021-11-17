@@ -1,0 +1,56 @@
+{
+  "formData": {	"fields": [
+    {
+      "component": "fieldset",
+      "label": "Nähere Erläuterung der zu fördernden Maßnahme:",
+      "fields": [
+        {
+          "component": "textarea",
+          "name": "Projekt.Beschreibung",
+          "label": "Erläuterung",
+          "maxlength": 1000,
+          "validation": [
+            {
+              "type": "mandatory",
+              "message": "Pflichtfeld, bitte eingeben ..."
+            },
+            {
+              "type": "maxLength",
+              "value": 1000
+            }
+          ]
+        }
+      ]
+    }
+  ]},
+  "formModel": {
+    "definition": {},
+    "externalId": "FBK_HIF_60"
+  },
+  "formModels": [
+    {
+      "definition": {},
+      "externalId": "FBK_HIF_60"
+    }
+  ],
+  "permissions": [
+    {
+      "userOrGroupName": "tu_sap2portal",
+      "permissionRoles": [
+        "DELETE",
+        "READ",
+        "WRITE",
+        "ACL"
+      ]
+    }
+  ],
+  "options": {
+    "lockRequired": true,
+    "lockTimeout": 5
+  },
+  "constants": [
+    {
+      "name": "GlobalFinancinghybrid"
+    }
+  ]
+}

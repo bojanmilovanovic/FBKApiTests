@@ -1,0 +1,20 @@
+{
+  "externalId": "USERUUID",
+  "partnerNo": "0000000016",
+  "gender": "MALE",
+  "firstName": "Stefan",
+  "name": "Dusan",
+  "mobileNo": "49172678567",
+  "tin": "12345678912",
+  "registrationId": "HRB 1234",
+  "state": "active",
+  "email": "hans.mustermann@crealogix.com",
+  "address": {
+    "street": "Beethovenstraße",
+    "streetNo": "9",
+    "appendix": "Hinterhof",
+    "zipCode": "70374",
+    "city": "Stuttgart",
+    "country": "DE"
+  }
+}

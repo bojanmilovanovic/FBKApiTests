@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="FBK API TESTS" verbose="1" >
+    <test name="Regression">
+        <packages>
+            <package name="org.apitests.dynamicform"></package>
+            <package name="org.apitests.tasks"></package>
+            <package name="org.apitests.formroute"></package>
+            <package name="org.apitests.fundings"></package>
+            <package name="org.apitests.fundings.updateStatus"></package>
+            <package name="org.apitests.partner"></package>
+            <package name="org.apitests.usermanagement"></package>
+        </packages>
+    </test>
+</suite>

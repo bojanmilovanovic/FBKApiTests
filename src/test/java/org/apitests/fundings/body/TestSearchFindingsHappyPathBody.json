@@ -1,0 +1,18 @@
+{
+  "filter": {
+    "totalAmountRange": {
+      "from": {
+        "currency": {
+          "code": "CHF"
+        },
+        "value": 1
+      },
+      "to": {
+        "currency": {
+          "code": "CHF"
+        },
+        "value": 20000
+      }
+    }
+  }
+}

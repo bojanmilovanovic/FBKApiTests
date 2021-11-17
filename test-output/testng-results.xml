@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="FBK API TESTS" duration-ms="6905" started-at="2021-08-08T12:28:26Z" finished-at="2021-08-08T12:28:33Z">
+    <groups>
+    </groups>
+    <test name="Regression" duration-ms="6905" started-at="2021-08-08T12:28:26Z" finished-at="2021-08-08T12:28:33Z">
+      <class name="org.apitests.usermanagement.TestC127321899GetAllUsersByPartnerID">
+        <test-method status="PASS" signature="testGetAllUsersByPartnerID()[pri:0, instance:org.apitests.usermanagement.TestC127321899GetAllUsersByPartnerID@7a36aefa]" name="testGetAllUsersByPartnerID" duration-ms="994" started-at="2021-08-08T14:28:30Z" finished-at="2021-08-08T14:28:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllUsersByPartnerID -->
+      </class> <!-- org.apitests.usermanagement.TestC127321899GetAllUsersByPartnerID -->
+      <class name="org.apitests.tasks.TestC127321887GetAllTasks">
+        <test-method status="PASS" signature="testGetAllTasks()[pri:0, instance:org.apitests.tasks.TestC127321887GetAllTasks@5d11346a]" name="testGetAllTasks" duration-ms="1122" started-at="2021-08-08T14:28:32Z" finished-at="2021-08-08T14:28:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllTasks -->
+      </class> <!-- org.apitests.tasks.TestC127321887GetAllTasks -->
+      <class name="org.apitests.usermanagement.TestC127321898GetAllUsersByLoginName">
+        <test-method status="PASS" signature="testC127321898GetAllUsersByLoginName()[pri:0, instance:org.apitests.usermanagement.TestC127321898GetAllUsersByLoginName@710726a3]" name="testC127321898GetAllUsersByLoginName" duration-ms="1002" started-at="2021-08-08T14:28:29Z" finished-at="2021-08-08T14:28:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testC127321898GetAllUsersByLoginName -->
+      </class> <!-- org.apitests.usermanagement.TestC127321898GetAllUsersByLoginName -->
+      <class name="org.apitests.usermanagement.TestC127324235GetUserByID">
+        <test-method status="PASS" signature="testGetUserByIDPrecondition()[pri:0, instance:org.apitests.usermanagement.TestC127324235GetUserByID@5c18298f]" name="testGetUserByIDPrecondition" is-config="true" duration-ms="2875" started-at="2021-08-08T14:28:26Z" finished-at="2021-08-08T14:28:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUserByIDPrecondition -->
+        <test-method status="PASS" signature="testGetUserByID()[pri:0, instance:org.apitests.usermanagement.TestC127324235GetUserByID@5c18298f]" name="testGetUserByID" duration-ms="911" started-at="2021-08-08T14:28:31Z" finished-at="2021-08-08T14:28:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUserByID -->
+      </class> <!-- org.apitests.usermanagement.TestC127324235GetUserByID -->
+    </test> <!-- Regression -->
+  </suite> <!-- FBK API TESTS -->
+</testng-results>

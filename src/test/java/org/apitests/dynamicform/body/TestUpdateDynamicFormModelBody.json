@@ -1,0 +1,50 @@
+{
+  "formModels": [
+    {
+      "formId": "{{dynamicFormID}}",
+      "formModel": {
+        "version": 5,
+        "fields": [
+          {
+            "component": "text",
+            "name": "Antragsteller.Weiteres.Gemeindekennzahl",
+            "label": "Gemeindekennziffer",
+            "help": "Gemeindekennziffer aus Formular 1",
+            "validation": [
+              {
+                "type": "mandatory"
+              }
+            ]
+          },
+          {
+            "component": "amount",
+            "name": "Antragsteller.Betrag1",
+            "currencyOptions": [
+              "EUR"
+            ],
+            "label": "Betrag 1",
+            "help": "Betrag 1 aus Formular 1"
+          },
+          {
+            "component": "amount",
+            "name": "Antragsteller.Betrag2",
+            "label": "Betrag 2",
+            "help": "Betrag 2 aus Formular 1"
+          },
+          {
+            "component": "amount",
+            "name": "Antragsteller.Betrag3",
+            "label": "Betrag 3",
+            "help": "Betrag 3 aus Formular 1"
+          },
+          {
+            "component": "amount",
+            "name": "Antragsteller.Betrag4",
+            "label": "Betrag 4",
+            "help": "Betrag 4 aus Formular 1"
+          }
+        ]
+      }
+    }
+  ]
+}
