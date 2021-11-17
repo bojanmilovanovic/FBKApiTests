@@ -24,9 +24,10 @@ public class TestRailRunner extends TestListenerAdapter {
     int TEST_CASE_SKIPPED_STATUS = 4;
     String projectID = "14";
     String suiteID = "24543";
+    boolean JENKINS_CREATE_TEST_RUN = Boolean.valueOf(System.getenv("createTestRailRun"));
 
     public void createTestRun(){
-        if (CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == false) {
+        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == false) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == false)) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
             Date date = new Date();
             client.setUser(username);
@@ -54,7 +55,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestFailure(ITestResult result) {
         createTestRun();
-        if (CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) {
+        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
