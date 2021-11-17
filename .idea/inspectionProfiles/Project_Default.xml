@@ -4,8 +4,15 @@
     <inspection_tool class="groupsTestNG" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="groups">
         <value>
-          <list size="1">
+          <list size="8">
             <item index="0" class="java.lang.String" itemvalue="dynamicform" />
+            <item index="1" class="java.lang.String" itemvalue="fundings" />
+            <item index="2" class="java.lang.String" itemvalue="tp4" />
+            <item index="3" class="java.lang.String" itemvalue="tp1" />
+            <item index="4" class="java.lang.String" itemvalue="usermanagement" />
+            <item index="5" class="java.lang.String" itemvalue="tasks" />
+            <item index="6" class="java.lang.String" itemvalue="formroute" />
+            <item index="7" class="java.lang.String" itemvalue="partner" />
           </list>
         </value>
       </option>
