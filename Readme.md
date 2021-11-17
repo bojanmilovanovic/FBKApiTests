@@ -1,26 +1,38 @@
 # READ ME
 
-Following it the relevant information regarding the API framework usage an well as the documentation of the APIs.
+## Goal 
+Run API tests in whole on different environments with as less time needed for execution and test data preparation and provide test run report.
 
-Framework relies on the Rest Assure and TestNG libraries imported via Maven.
+##Tech stack:
+Java
+TestNG
+RestAssured
+Maven
 
-## API swagger files
-[Documentation](https://collaborate.crealogix.com/confluence/display/FOERDERBANK/Overview+open+api+spec+of+the+basis+module)
+##Basis:
+Test cases are written in Test Rail and can be found at https://testrail.ebs.crealogix.net/index.php?/suites/view/24543.
+These test cases are then automated in Java using TestNG as basis for test execution and RestAssured as the API testing framework.
 
-## Various
+##Groups:
+Tests are grouped in two types of categories:
+- By module:
+  - dynamicform
+  - formroute
+  - fundings
+  - partner
+  - tasks
+  - usermanagement
+- By TP:
+  - TP1
+  - TP4
 
-### PartnerId
+This way, a group of tests from a specific module or TP can be executed using the testng.xml file to filter appropriate tests. With further development and introduction of new modules or TPs the list can easily be expanded.
 
-PartnerId can be setup on the Admin Center by searching the user under Finances and editing the contract
+##Environment files:
+In order to execute tests on different environment under the src/main/resources/org/apitests/ path the config.properties file is found. This file has two parameters:
+- environment parameter:
+Specifies the name of the environment on which the tests will run with. The name of the environment is also the name of the property file in the same path that contains different variables for the environment and test data needed.
+- createTestRailRun parameter:
+Boolean value that defines if a TestRail run should be created. If true, test run will be created and can be used for reporting. If false, TestRail run will not be created.
 
-### Running tests on different environment
-In order to change the environment on which the tests are to be run, only the environment property of the
-config.properties file needs to be updated to point to a correct environment file
-(e.g. fbk-r3-dev). Additional environment files can be added with data being setup previously.
-
-### Useful commands
-response.prettyPrint();
-
-#TO DO
-Create task tests
-Start with create task api call (try on r4 dev)
+Ongoing design and development are being taken so that the test data being created for a test run will be as minimal as possible and thus require minimal effort for setting up when running on new environments.
