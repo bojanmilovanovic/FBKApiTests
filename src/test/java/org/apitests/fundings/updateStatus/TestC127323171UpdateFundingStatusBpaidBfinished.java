@@ -25,7 +25,7 @@ public class TestC127323171UpdateFundingStatusBpaidBfinished {
         dbHelper.closeConnection();
     }
 
-    @Test
+    @Test(groups = {"fundings", "tp1"})
     public void testUpdateFundingStatusBpaidBfinished(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;

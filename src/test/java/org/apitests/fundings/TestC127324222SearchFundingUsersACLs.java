@@ -17,7 +17,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324222SearchFundingUsersACLs {
 
-    @Test
+    @Test(groups = {"fundings", "tp1"})
     public void testSearchFundingUsersACLs() throws IOException {
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;

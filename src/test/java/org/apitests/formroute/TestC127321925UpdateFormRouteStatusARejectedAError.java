@@ -27,7 +27,7 @@ public class TestC127321925UpdateFormRouteStatusARejectedAError {
         dbHelper.closeConnection();
     }
 
-    @Test
+    @Test(groups = {"formroute", "tp1"})
     public void testUpdateFormRouteStatusARejectedAError(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;

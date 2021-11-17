@@ -28,7 +28,7 @@ public class TestC127322001UpdateFormRouteStatusNegativeScenarioBInwork {
         dbHelper.closeConnection();
     }
 
-    @Test
+    @Test(groups = {"formroute", "tp1"})
     public void testUpdateFormRouteStatusNegativeScenarioBInwork(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;

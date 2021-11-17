@@ -20,7 +20,7 @@ public class TestC127324231PutDynamicFormACL {
         testC127324224CreateDynamicForm.testCreateDynamicForm();
     }
 
-    @Test
+    @Test(groups = {"dynamicform", "tp1"})
     public void testPutDynamicFormACL() {
 
         Token token = new Token("sap");
@@ -41,7 +41,7 @@ public class TestC127324231PutDynamicFormACL {
     }
 
     @AfterMethod
-    public void testPutDynamicFormACLPostcondition() throws IOException {
+    public void testPutDynamicFormACLPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testDeleteDynamicForm();
     }

@@ -22,8 +22,8 @@ public class TestC127324225DeleteDynamicForm {
         testC127324224CreateDynamicForm.testCreateDynamicForm();
     }
 
-    @Test
-    public void testDeleteDynamicForm() throws IOException {
+    @Test(groups = {"dynamicform", "tp1"})
+    public void testDeleteDynamicForm() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;

@@ -15,8 +15,8 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321899GetAllUsersByPartnerID {
 
-    @Test
-    public void testGetAllUsersByPartnerID() throws IOException {
+    @Test(groups = {"usermanagement", "tp1"})
+    public void testGetAllUsersByPartnerID() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

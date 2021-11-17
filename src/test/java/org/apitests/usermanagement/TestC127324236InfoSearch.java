@@ -18,7 +18,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324236InfoSearch {
 
-    @Test
+    @Test(groups = {"usermanagement", "tp1"})
     public void testInfoSearch() throws IOException {
 
         Token token = new Token("sap");

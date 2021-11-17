@@ -17,11 +17,13 @@ import java.io.IOException;
 public class TestC127321886AssignATask {
 
     @BeforeMethod
-    public void testAssignATaskPrecondition() {
+    public void testC127321886AssignATaskPrecondition() throws IOException {
+        TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
     }
 
-    @Test
-    public void testAssignATask() {
+    @Test(groups = {"tasks", "tp1"})
+    public void testC127321886AssignATask() {
 
         Token token = new Token("server");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
@@ -34,8 +36,6 @@ public class TestC127321886AssignATask {
         request.body(body);
 
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/assign");
-
-        System.out.println(body);
 
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));

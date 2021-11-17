@@ -16,7 +16,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321889GetAllTasksWithACL {
 
-    @Test
+    @Test(groups = {"tasks", "tp1"})
     public void testC127321889GetAllTasksWithACL() {
 
         Token token = new Token("sap");

@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.util.stream.IntStream;
+
 
 @Listeners({TestRailRunner.class})
 public class TestC127323753UpdateFundingStatusNegativeScenariosBApproved {
@@ -28,7 +30,7 @@ public class TestC127323753UpdateFundingStatusNegativeScenariosBApproved {
         dbHelper.closeConnection();
     }
 
-    @Test
+    @Test(groups = {"fundings", "tp1"})
     public void testUpdateFundingStatusNegativeScenariosBApproved(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
@@ -37,13 +39,13 @@ public class TestC127323753UpdateFundingStatusNegativeScenariosBApproved {
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
-        for(int i=0; i<statusAfterB_approved.length; i++) {
+        IntStream.range(0, statusAfterB_approved.length).forEach(i -> {
             String requestBody = "{ \"state\": \"" + statusAfterB_approved[i] + "\" }";
             request.body(requestBody);
             Response response = request.put("/fundings/" + Globals.FUNDING_ID + "/state");
-            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting "+statusBefore+" to "+statusAfterB_approved[i]+".");
+            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting " + statusBefore + " to " + statusAfterB_approved[i] + ".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
-        }
+        });
 
     }
 

@@ -23,7 +23,7 @@ public class TestC127324232PutDynamicFormModel {
         testC127324224CreateDynamicForm.testCreateDynamicForm();
     }
 
-    @Test
+    @Test(groups = {"dynamicform", "tp1"})
     public void testPutDynamicFormModel() throws IOException {
 
         Token token = new Token("sap");
@@ -42,12 +42,12 @@ public class TestC127324232PutDynamicFormModel {
 
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
-        Assert.assertEquals(response.jsonPath().getBoolean("updateInfo[0].updated"), true, "Update flag is not correctly returned.");
+        Assert.assertTrue(response.jsonPath().getBoolean("updateInfo[0].updated"), "Update flag is not correctly returned.");
 
     }
 
     @AfterMethod
-    public void testPutDynamicFormModelPostcondition() throws IOException {
+    public void testPutDynamicFormModelPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testDeleteDynamicForm();
     }

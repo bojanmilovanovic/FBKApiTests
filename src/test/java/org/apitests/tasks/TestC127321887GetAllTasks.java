@@ -16,7 +16,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321887GetAllTasks {
 
-    @Test
+    @Test(groups = {"tasks", "tp1"})
     public void testGetAllTasks() {
 
         Token token = new Token("sap");

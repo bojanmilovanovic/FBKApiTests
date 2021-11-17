@@ -20,8 +20,8 @@ public class TestC127324230GetDynamicFormMeta {
         testC127324224CreateDynamicForm.testCreateDynamicForm();
     }
 
-    @Test
-    public void testGetDynamicFormMeta() throws IOException {
+    @Test(groups = {"dynamicform", "tp1"})
+    public void testGetDynamicFormMeta() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
@@ -39,7 +39,7 @@ public class TestC127324230GetDynamicFormMeta {
     }
 
     @AfterMethod
-    public void testGetDynamicFormMetaPostcondition() throws IOException {
+    public void testGetDynamicFormMetaPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testDeleteDynamicForm();
     }

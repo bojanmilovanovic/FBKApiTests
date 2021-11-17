@@ -16,8 +16,8 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321898GetAllUsersByLoginName {
 
-    @Test
-    public void testGetAllUsersByLoginName() throws IOException {
+    @Test(groups = {"usermanagement", "tp1"})
+    public void testGetAllUsersByLoginName() {
 
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

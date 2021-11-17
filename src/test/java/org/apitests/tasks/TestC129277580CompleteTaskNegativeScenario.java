@@ -27,8 +27,8 @@ public class TestC129277580CompleteTaskNegativeScenario {
         dbHelper.closeConnection();
     }
 
-    @Test
-    public void testC129277580CompleteTaskNegativeScenario() throws IOException {
+    @Test(groups = {"tasks", "tp1"})
+    public void testC129277580CompleteTaskNegativeScenario() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/admin-api/v1/"+Globals.TENANT;

@@ -18,7 +18,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC129430161CreateATaskWithoutAttachments {
 
-    @Test
+    @Test(groups = {"tasks", "tp1"})
     public void testC129430161CreateATaskWithoutAttachments() throws IOException {
 
         Token token = new Token("sap");

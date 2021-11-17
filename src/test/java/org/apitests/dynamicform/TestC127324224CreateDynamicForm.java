@@ -19,7 +19,7 @@ import static org.testng.reporters.Files.readFile;
 @Listeners({TestRailRunner.class})
 public class TestC127324224CreateDynamicForm {
 
-    @Test(groups = {"dynamicform"})
+    @Test(groups = {"dynamicform", "tp1"})
     public void testCreateDynamicForm() throws IOException {
 
         Token token = new Token("sap");

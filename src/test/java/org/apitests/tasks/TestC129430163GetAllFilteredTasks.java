@@ -19,7 +19,7 @@ import static org.testng.reporters.Files.readFile;
 @Listeners({TestRailRunner.class})
 public class TestC129430163GetAllFilteredTasks {
 
-    @Test
+    @Test(groups = {"tasks", "tp1"})
     public void testC129430163GetAllFilteredTasks() throws IOException {
 
         Token token = new Token("sap");

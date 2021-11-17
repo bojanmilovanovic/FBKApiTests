@@ -23,7 +23,7 @@ public class TestC127321890GetTaskById {
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
     }
 
-    @Test
+    @Test(groups = {"tasks", "tp1"})
     public void testC127321890GetTaskById() {
 
         Token token = new Token("sap");

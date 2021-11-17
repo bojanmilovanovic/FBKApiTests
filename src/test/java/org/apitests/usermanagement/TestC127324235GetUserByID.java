@@ -17,12 +17,12 @@ import java.io.IOException;
 public class TestC127324235GetUserByID {
 
     @BeforeTest
-    public void testGetUserByIDPrecondition() throws IOException {
+    public void testGetUserByIDPrecondition() {
         TestC127321898GetAllUsersByLoginName testC127321898GetAllUsersByLoginName = new TestC127321898GetAllUsersByLoginName();
         testC127321898GetAllUsersByLoginName.testGetAllUsersByLoginName();
     }
 
-    @Test
+    @Test(groups = {"usermanagement", "tp1"})
     public void testGetUserByID() {
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

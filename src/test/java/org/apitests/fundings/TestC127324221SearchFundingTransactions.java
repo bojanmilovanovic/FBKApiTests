@@ -15,7 +15,7 @@ import java.io.File;
 @Listeners({TestRailRunner.class})
 public class TestC127324221SearchFundingTransactions {
 
-    @Test(groups={"release4", "fundings"})
+    @Test(groups = {"fundings", "tp4"})
     public void testSearchFundingTransactions(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;

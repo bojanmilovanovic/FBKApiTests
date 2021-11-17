@@ -16,8 +16,8 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321888GetAllTasksAdminApi {
 
-    @Test
-    public void testGetAllTasksAdminApi() throws IOException {
+    @Test(groups = {"tasks", "tp1"})
+    public void testGetAllTasksAdminApi() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/admin-api/v1/"+Globals.TENANT;

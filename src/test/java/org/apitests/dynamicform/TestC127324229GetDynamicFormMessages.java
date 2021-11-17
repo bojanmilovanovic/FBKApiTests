@@ -20,8 +20,8 @@ public class TestC127324229GetDynamicFormMessages {
         testC127324224CreateDynamicForm.testCreateDynamicForm();
     }
 
-    @Test
-    public void testGetDynamicFormMessages() throws IOException {
+    @Test(groups = {"dynamicform", "tp1"})
+    public void testGetDynamicFormMessages() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
@@ -39,7 +39,7 @@ public class TestC127324229GetDynamicFormMessages {
     }
 
     @AfterMethod
-    public void testGetDynamicFormMessagesPostcondition() throws IOException {
+    public void testGetDynamicFormMessagesPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testDeleteDynamicForm();
     }
