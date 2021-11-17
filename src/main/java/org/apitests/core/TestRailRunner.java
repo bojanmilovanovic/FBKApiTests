@@ -77,7 +77,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestSuccess(ITestResult result) {
         createTestRun();
-        if (CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) {
+        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) ||  (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
@@ -99,7 +99,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestSkipped(ITestResult result) {
         createTestRun();
-        if (CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) {
+        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
