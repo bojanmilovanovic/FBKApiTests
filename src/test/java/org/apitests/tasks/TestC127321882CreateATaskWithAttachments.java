@@ -16,10 +16,10 @@ import java.io.File;
 import java.io.IOException;
 
 @Listeners({TestRailRunner.class})
-public class TestC127321882CreateATask {
+public class TestC127321882CreateATaskWithAttachments {
 
     @Test
-    public void testCreateATask() throws IOException {
+    public void testCreateATaskWithAttachments() throws IOException {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;

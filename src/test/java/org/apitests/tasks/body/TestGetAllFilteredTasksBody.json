@@ -1,0 +1,11 @@
+{
+  "filter": {
+    "subject": "test_with_attachment"
+  },
+  "sort": [
+    {
+      "direction": "ASC",
+      "name": "id"
+    }
+  ]
+}

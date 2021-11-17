@@ -17,13 +17,11 @@ import java.io.IOException;
 public class TestC127321886AssignATask {
 
     @BeforeMethod
-    public void testAssignATaskPrecondition() throws IOException {
-        TestC127321882CreateATask testC127321882CreateATask = new TestC127321882CreateATask();
-        testC127321882CreateATask.testCreateATask();
+    public void testAssignATaskPrecondition() {
     }
 
     @Test
-    public void testAssignATask() throws IOException {
+    public void testAssignATask() {
 
         Token token = new Token("server");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;

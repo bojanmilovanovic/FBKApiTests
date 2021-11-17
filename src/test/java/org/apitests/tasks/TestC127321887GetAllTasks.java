@@ -17,9 +17,9 @@ import java.io.IOException;
 public class TestC127321887GetAllTasks {
 
     @Test
-    public void testGetAllTasks() throws IOException {
+    public void testGetAllTasks() {
 
-        Token token = new Token("server");
+        Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
 
         RequestSpecification request = RestAssured.given();

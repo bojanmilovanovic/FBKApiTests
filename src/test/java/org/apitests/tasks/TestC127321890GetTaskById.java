@@ -18,13 +18,13 @@ import java.io.IOException;
 public class TestC127321890GetTaskById {
 
     @BeforeMethod
-    public void testGetUserByIDPrecondition() throws IOException {
-        TestC127321882CreateATask testC127321882CreateATask = new TestC127321882CreateATask();
-        testC127321882CreateATask.testCreateATask();
+    public void testC127321890GetTaskByIdPrecondition() throws IOException {
+        TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
     }
 
     @Test
-    public void testGetTaskById() throws IOException {
+    public void testC127321890GetTaskById() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
@@ -33,14 +33,12 @@ public class TestC127321890GetTaskById {
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
-        JSONObject requestParams = new JSONObject();
-        request.body(requestParams.toString());
 
         Response response = request.get("/tasks/"+Globals.TASK_ID);
 
-        response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+        Assert.assertFalse(response.jsonPath().getString("task.subject").isEmpty(), "Task does not have a subject field");
     }
 
 }
