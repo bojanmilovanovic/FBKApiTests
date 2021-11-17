@@ -34,7 +34,6 @@ public class TestC127321887GetAllTasks {
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 
-        response.prettyPrint();
     }
 
 }

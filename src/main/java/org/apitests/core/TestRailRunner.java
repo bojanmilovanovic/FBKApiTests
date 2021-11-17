@@ -27,7 +27,7 @@ public class TestRailRunner extends TestListenerAdapter {
     boolean JENKINS_CREATE_TEST_RUN = Boolean.valueOf(System.getenv("createTestRailRun"));
 
     public void createTestRun(){
-        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == false) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == false)) {
+        if ((CREATE_TEST_RUN && !TEST_RUN_IS_CREATED) || (JENKINS_CREATE_TEST_RUN && !TEST_RUN_IS_CREATED)) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
             Date date = new Date();
             client.setUser(username);
@@ -40,8 +40,7 @@ public class TestRailRunner extends TestListenerAdapter {
             data.put("assignedto_id", 68);
             try {
                 JSONObject c = (JSONObject) client.sendPost("add_run/" + projectID, data);
-                Long run_Id = (Long) c.get("id");
-                TEST_RUN_ID = run_Id;
+                TEST_RUN_ID = (Long) c.get("id");
                 TEST_RUN_IS_CREATED = true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -55,7 +54,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestFailure(ITestResult result) {
         createTestRun();
-        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
+        if ((CREATE_TEST_RUN && TEST_RUN_IS_CREATED) || (JENKINS_CREATE_TEST_RUN && TEST_RUN_IS_CREATED)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
@@ -70,6 +69,7 @@ public class TestRailRunner extends TestListenerAdapter {
             } catch (APIException e) {
                 e.printStackTrace();
             }
+            System.out.println("Test case "+testCaseId+" failed.");
         }
     }
 
@@ -77,7 +77,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestSuccess(ITestResult result) {
         createTestRun();
-        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) ||  (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
+        if ((CREATE_TEST_RUN && TEST_RUN_IS_CREATED) ||  (JENKINS_CREATE_TEST_RUN && TEST_RUN_IS_CREATED)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
@@ -92,6 +92,7 @@ public class TestRailRunner extends TestListenerAdapter {
             } catch (APIException e) {
                 e.printStackTrace();
             }
+            System.out.println("Test case "+testCaseId+" passed.");
         }
     }
 
@@ -99,7 +100,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onTestSkipped(ITestResult result) {
         createTestRun();
-        if ((CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true) || (JENKINS_CREATE_TEST_RUN == true && TEST_RUN_IS_CREATED == true)) {
+        if ((CREATE_TEST_RUN && TEST_RUN_IS_CREATED) || (JENKINS_CREATE_TEST_RUN && TEST_RUN_IS_CREATED)) {
             String testCaseId = result.getInstance().getClass().getSimpleName().substring(5, 14);
             client.setUser(username);
             client.setPassword(password);
@@ -114,6 +115,7 @@ public class TestRailRunner extends TestListenerAdapter {
             } catch (APIException e) {
                 e.printStackTrace();
             }
+            System.out.println("Test case "+testCaseId+" skipped.");
         }
     }
 

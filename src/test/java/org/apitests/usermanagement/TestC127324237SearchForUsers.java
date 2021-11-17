@@ -32,7 +32,6 @@ public class TestC127324237SearchForUsers {
         request.body(requestBody);
 
         Response response = request.post("/users/search");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

@@ -42,7 +42,7 @@ public class TestC129430161CreateATaskWithoutAttachments {
         request.multiPart("context", requestBody, "application/json");
 
         Response response = request.post("/taskbulk");
-        response.prettyPrint();
+
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

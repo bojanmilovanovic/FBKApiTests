@@ -40,8 +40,6 @@ public class TestC129277578CompleteTask {
 
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/complete");
 
-        response.prettyPrint();
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 
