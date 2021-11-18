@@ -22,7 +22,7 @@ public class TestC127324237SearchForUsers {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
-        File file = new File("src/test/java/org/apitests/tasks/body/TestCreateATaskBody.json");
+        File file = new File("src/test/java/org/apitests/usermanagement/body/TestSearchForUsersBody.json");
         String requestBody = Files.readFile(file);
 
         RequestSpecification request = RestAssured.given();

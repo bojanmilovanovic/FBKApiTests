@@ -37,8 +37,6 @@ public class Token {
             Response response = RestAssured.given().with().header("Content-Type", "application/x-www-form-urlencoded").body(body).post(Globals.PROTOCOL + "://" + Globals.HOST + "/authserver/oauth/" + Globals.TENANT + "/oauth/token");
             Globals.TOKEN_TYPE = response.path("token_type");
             Globals.TOKEN_VALUE = response.path("access_token");
-        }else{
-            Reporter.log("Token is already generated, skipping generation.", true);
         }
     }
 
