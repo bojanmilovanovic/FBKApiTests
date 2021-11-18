@@ -7,6 +7,7 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,12 @@ import static org.testng.reporters.Files.readFile;
 
 @Listeners({TestRailRunner.class})
 public class TestC129430163GetAllFilteredTasks {
+
+    @BeforeMethod
+    public void testC129430163GetAllFilteredTasksPrecondition() throws IOException {
+        TestC127321882CreateATaskWithAttachments testC127321882CreateATaskWithAttachments = new TestC127321882CreateATaskWithAttachments();
+        testC127321882CreateATaskWithAttachments.testCreateATaskWithAttachments();
+    }
 
     @Test(groups = {"tasks", "tp1"})
     public void testC129430163GetAllFilteredTasks() throws IOException {
@@ -43,6 +50,7 @@ public class TestC129430163GetAllFilteredTasks {
             Assert.assertEquals(response.jsonPath().getString("tasks["+i+"].subject"), subject, "Subject of retrieved task is not according to the one set in filter");
         }
         Globals.TASK_ID = response.jsonPath().getString("tasks[0].id");
+        System.out.println(Globals.TASK_ID);
 
     }
 

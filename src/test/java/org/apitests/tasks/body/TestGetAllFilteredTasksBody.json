@@ -1,11 +1,14 @@
 {
   "filter": {
-    "subject": "test_with_attachment"
+    "subject": "test_with_attachment",
+    "taskStatus": [
+      "READY"
+    ]
   },
   "sort": [
     {
-      "direction": "ASC",
-      "name": "id"
+      "direction": "DESC",
+      "name": "assigneeId"
     }
   ]
 }
