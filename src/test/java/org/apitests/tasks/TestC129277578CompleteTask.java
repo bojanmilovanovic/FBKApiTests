@@ -12,8 +12,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 @Listeners({TestRailRunner.class})
 public class TestC129277578CompleteTask {
 

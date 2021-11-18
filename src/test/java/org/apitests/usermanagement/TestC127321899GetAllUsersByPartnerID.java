@@ -10,8 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 @Listeners({TestRailRunner.class})
 public class TestC127321899GetAllUsersByPartnerID {
 

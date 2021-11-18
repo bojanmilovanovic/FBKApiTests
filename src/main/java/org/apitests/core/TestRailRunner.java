@@ -1,15 +1,16 @@
 package org.apitests.core;
 
 import org.apitests.core.testrail.APIClient;
-import org.apitests.core.testrail.APIException;
 import org.json.simple.JSONObject;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class TestRailRunner extends TestListenerAdapter {
 

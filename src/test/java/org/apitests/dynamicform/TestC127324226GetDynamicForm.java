@@ -7,11 +7,12 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
-
-import static org.testng.reporters.Files.readFile;
 
 @Listeners({TestRailRunner.class})
 public class TestC127324226GetDynamicForm {

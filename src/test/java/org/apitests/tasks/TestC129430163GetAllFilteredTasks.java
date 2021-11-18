@@ -6,7 +6,6 @@ import io.restassured.specification.RequestSpecification;
 import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
