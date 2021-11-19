@@ -50,7 +50,6 @@ public class TestC129430163GetAllFilteredTasks {
             Assert.assertEquals(response.jsonPath().getString("tasks["+i+"].subject"), subject, "Subject of retrieved task is not according to the one set in filter");
         }
         Globals.TASK_ID = response.jsonPath().getString("tasks[0].id");
-        System.out.println(Globals.TASK_ID);
 
     }
 

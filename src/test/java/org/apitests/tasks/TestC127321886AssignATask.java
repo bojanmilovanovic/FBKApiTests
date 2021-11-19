@@ -36,7 +36,6 @@ public class TestC127321886AssignATask {
         request.body(body);
 
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/assign");
-        System.out.println(body);
 
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
