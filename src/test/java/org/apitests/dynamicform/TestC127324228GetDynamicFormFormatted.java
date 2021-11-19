@@ -36,7 +36,7 @@ public class TestC127324228GetDynamicFormFormatted {
 
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
-        response.prettyPrint();
+
     }
 
     @AfterMethod

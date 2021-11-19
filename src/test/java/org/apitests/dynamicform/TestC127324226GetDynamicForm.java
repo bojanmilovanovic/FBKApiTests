@@ -19,7 +19,6 @@ public class TestC127324226GetDynamicForm {
 
     @BeforeMethod
     public void testC127324226GetDynamicFormPrecondition() throws IOException {
-        System.out.println("Before test is run on Get Dynamic Form");
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
         testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
     }
