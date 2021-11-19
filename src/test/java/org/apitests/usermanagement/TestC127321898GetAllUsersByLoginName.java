@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class TestC127321898GetAllUsersByLoginName {
 
     @Test(groups = {"usermanagement", "tp1"})
-    public void testGetAllUsersByLoginName() {
+    public void testC127321898GetAllUsersByLoginName() {
 
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

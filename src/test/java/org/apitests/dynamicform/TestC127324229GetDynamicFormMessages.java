@@ -15,13 +15,13 @@ import java.io.IOException;
 public class TestC127324229GetDynamicFormMessages {
 
     @BeforeMethod
-    public void testGetDynamicFormMessagesPrecondition() throws IOException {
+    public void testC127324229GetDynamicFormMessagesPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
-        testC127324224CreateDynamicForm.testCreateDynamicForm();
+        testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
     }
 
     @Test(groups = {"dynamicform", "tp1"})
-    public void testGetDynamicFormMessages() {
+    public void testC127324229GetDynamicFormMessages() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
@@ -41,7 +41,7 @@ public class TestC127324229GetDynamicFormMessages {
     @AfterMethod
     public void testGetDynamicFormMessagesPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
-        testC127324225DeleteDynamicForm.testDeleteDynamicForm();
+        testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();
     }
 
 }

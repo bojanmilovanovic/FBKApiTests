@@ -18,13 +18,13 @@ import static org.testng.reporters.Files.readFile;
 public class TestC127324232PutDynamicFormModel {
 
     @BeforeMethod
-    public void testPutDynamicFormModelPrecondition() throws IOException {
+    public void testC127324232PutDynamicFormModelPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
-        testC127324224CreateDynamicForm.testCreateDynamicForm();
+        testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
     }
 
     @Test(groups = {"dynamicform", "tp1"})
-    public void testPutDynamicFormModel() throws IOException {
+    public void testC127324232PutDynamicFormModel() throws IOException {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
@@ -47,9 +47,9 @@ public class TestC127324232PutDynamicFormModel {
     }
 
     @AfterMethod
-    public void testPutDynamicFormModelPostcondition() {
+    public void testC127324232PutDynamicFormModelPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
-        testC127324225DeleteDynamicForm.testDeleteDynamicForm();
+        testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();
     }
 
 }

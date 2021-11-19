@@ -19,14 +19,14 @@ public class TestC127323125UpdateFundingStatusBinworkBapproved {
     DBHelper dbHelper = new DBHelper();
 
     @BeforeMethod
-    public void testUpdateFundingStatusBinworkBapprovedPrecondition() throws Exception {
+    public void testC127323125UpdateFundingStatusBinworkBapprovedPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();
     }
 
     @Test(groups = {"fundings", "tp1"})
-    public void testUpdateFundingStatusBinworkBapproved(){
+    public void testC127323125UpdateFundingStatusBinworkBapproved(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();
@@ -43,7 +43,7 @@ public class TestC127323125UpdateFundingStatusBinworkBapproved {
     }
 
     @AfterMethod
-    public void testUpdateFundingStatusBinworkBapprovedPostcondition() throws Exception {
+    public void testC127323125UpdateFundingStatusBinworkBapprovedPostcondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();

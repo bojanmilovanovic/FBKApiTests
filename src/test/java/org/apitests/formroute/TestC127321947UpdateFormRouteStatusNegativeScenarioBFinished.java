@@ -21,7 +21,7 @@ public class TestC127321947UpdateFormRouteStatusNegativeScenarioBFinished {
     private String[] statusAfter = new String[]{"A_accepted","A_error","A_finished","A_received","A_rejected","A_return","B_aborted","B_inwork","C_deleted","C_finished","C_inwork","C_new"};
 
     @BeforeMethod
-    public void testUpdateFormRouteStatusNegativeScenarioBFinishedPrecondition() throws Exception {
+    public void testC127321947UpdateFormRouteStatusNegativeScenarioBFinishedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_form_routes set formroute_status = '"+statusBefore+"' where external_id = '"+ Globals.FORMROUTE_ID+"'");
@@ -29,7 +29,7 @@ public class TestC127321947UpdateFormRouteStatusNegativeScenarioBFinished {
     }
 
     @Test(groups = {"formroute", "tp1"})
-    public void testUpdateFormRouteStatusNegativeScenarioBFinished(){
+    public void testC127321947UpdateFormRouteStatusNegativeScenarioBFinished(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();

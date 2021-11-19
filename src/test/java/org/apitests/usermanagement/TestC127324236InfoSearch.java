@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class TestC127324236InfoSearch {
 
     @Test(groups = {"usermanagement", "tp1"})
-    public void testInfoSearch() {
+    public void testC127324236InfoSearch() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/api/v1/"+Globals.TENANT;

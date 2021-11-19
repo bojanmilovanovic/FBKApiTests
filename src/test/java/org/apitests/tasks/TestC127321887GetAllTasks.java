@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class TestC127321887GetAllTasks {
 
     @Test(groups = {"tasks", "tp1"})
-    public void testGetAllTasks() {
+    public void testC127321887GetAllTasks() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;

@@ -20,7 +20,7 @@ public class TestC127321920UpdateFormRouteStatusAErrorBInwork {
     private String statusAfter = "B_inwork";
 
     @BeforeMethod
-    public void testUpdateFormRouteStatusAErrorBInworkPrecondition() throws Exception {
+    public void testC127321920UpdateFormRouteStatusAErrorBInworkPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_form_routes set formroute_status = '"+statusBefore+"' where external_id = '"+ Globals.FORMROUTE_ID+"'");
@@ -28,7 +28,7 @@ public class TestC127321920UpdateFormRouteStatusAErrorBInwork {
     }
 
     @Test(groups = {"formroute", "tp1"})
-    public void testUpdateFormRouteStatusAErrorBInwork(){
+    public void testC127321920UpdateFormRouteStatusAErrorBInwork(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();

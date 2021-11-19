@@ -20,7 +20,7 @@ public class TestC127323259UpdateFundingStatusCinworkCdeleted {
     private String statusAfter = "C_deleted";
 
     @BeforeMethod
-    public void testUpdateFundingStatusCinworkCdeletedPrecondition() throws Exception {
+    public void testC127323259UpdateFundingStatusCinworkCdeletedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
@@ -28,7 +28,7 @@ public class TestC127323259UpdateFundingStatusCinworkCdeleted {
     }
 
     @Test(groups = {"fundings", "tp1"})
-    public void testUpdateFundingStatusCinworkCdeleted(){
+    public void testC127323259UpdateFundingStatusCinworkCdeleted(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();

@@ -17,13 +17,13 @@ import java.io.IOException;
 public class TestC127324225DeleteDynamicForm {
 
     @BeforeMethod
-    public void testDeleteDynamicFormPrecondition() throws IOException {
+    public void testC127324225DeleteDynamicFormPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
-        testC127324224CreateDynamicForm.testCreateDynamicForm();
+        testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
     }
 
     @Test(groups = {"dynamicform", "tp1"})
-    public void testDeleteDynamicForm() {
+    public void testC127324225DeleteDynamicForm() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;

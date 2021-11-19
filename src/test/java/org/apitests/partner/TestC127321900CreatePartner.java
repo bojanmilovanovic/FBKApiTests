@@ -20,7 +20,7 @@ import static org.testng.reporters.Files.readFile;
 public class TestC127321900CreatePartner {
 
     @Test(groups = {"partner", "tp1"})
-    public void testCreatePartner() throws IOException {
+    public void testC127321900CreatePartner() throws IOException {
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkpartner/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();

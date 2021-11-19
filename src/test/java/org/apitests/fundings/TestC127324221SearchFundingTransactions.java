@@ -16,7 +16,7 @@ import java.io.File;
 public class TestC127324221SearchFundingTransactions {
 
     @Test(groups = {"fundings", "tp4"})
-    public void testSearchFundingTransactions(){
+    public void testC127324221SearchFundingTransactions(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();

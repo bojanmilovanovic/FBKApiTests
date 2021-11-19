@@ -22,7 +22,7 @@ public class TestC129430163GetAllFilteredTasks {
     @BeforeMethod
     public void testC129430163GetAllFilteredTasksPrecondition() throws IOException {
         TestC127321882CreateATaskWithAttachments testC127321882CreateATaskWithAttachments = new TestC127321882CreateATaskWithAttachments();
-        testC127321882CreateATaskWithAttachments.testCreateATaskWithAttachments();
+        testC127321882CreateATaskWithAttachments.testC127321882CreateATaskWithAttachments();
     }
 
     @Test(groups = {"tasks", "tp1"})

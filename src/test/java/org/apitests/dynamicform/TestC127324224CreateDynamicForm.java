@@ -19,7 +19,7 @@ import static org.testng.reporters.Files.readFile;
 public class TestC127324224CreateDynamicForm {
 
     @Test(groups = {"dynamicform", "tp1"})
-    public void testCreateDynamicForm() throws IOException {
+    public void testC127324224CreateDynamicForm() throws IOException {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;

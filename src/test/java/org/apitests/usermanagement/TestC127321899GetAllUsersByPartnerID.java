@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class TestC127321899GetAllUsersByPartnerID {
 
     @Test(groups = {"usermanagement", "tp1"})
-    public void testGetAllUsersByPartnerID() {
+    public void testC127321899GetAllUsersByPartnerID() {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

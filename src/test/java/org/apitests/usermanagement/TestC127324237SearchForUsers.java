@@ -18,7 +18,7 @@ import java.io.IOException;
 public class TestC127324237SearchForUsers {
 
     @Test(groups = {"usermanagement", "tp1"})
-    public void testSearchForUsers() throws IOException {
+    public void testC127324237SearchForUsers() throws IOException {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

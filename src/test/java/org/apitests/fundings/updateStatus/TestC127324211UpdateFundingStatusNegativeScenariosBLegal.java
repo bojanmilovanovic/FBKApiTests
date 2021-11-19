@@ -22,14 +22,14 @@ public class TestC127324211UpdateFundingStatusNegativeScenariosBLegal {
     DBHelper dbHelper = new DBHelper();
 
     @BeforeMethod
-    public void testUpdateFundingStatusNegativeScenariosBLegalPrecondition() throws Exception {
+    public void testC127324211UpdateFundingStatusNegativeScenariosBLegalPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();
     }
 
     @Test(groups = {"fundings", "tp1"})
-    public void testUpdateFundingStatusNegativeScenariosBLegal(){
+    public void testC127324211UpdateFundingStatusNegativeScenariosBLegal(){
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         RequestSpecification request = RestAssured.given();
@@ -44,11 +44,10 @@ public class TestC127324211UpdateFundingStatusNegativeScenariosBLegal {
             Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting "+statusBefore+" to "+statusAfterB_legal[i]+".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
         }
-
     }
 
     @AfterMethod
-    public void testUpdateFundingStatusNegativeScenariosBLegalPostcondition() throws Exception {
+    public void testC127324211UpdateFundingStatusNegativeScenariosBLegalPostcondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();

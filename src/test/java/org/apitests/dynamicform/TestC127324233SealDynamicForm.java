@@ -18,13 +18,13 @@ import java.io.IOException;
 public class TestC127324233SealDynamicForm {
 
     @BeforeMethod
-    public void testSealDynamicFormPrecondition() throws IOException {
+    public void testC127324233SealDynamicFormPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
-        testC127324224CreateDynamicForm.testCreateDynamicForm();
+        testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
     }
 
     @Test(groups = {"dynamicform", "tp1"})
-    public void testSealDynamicForm() {
+    public void testC127324233SealDynamicForm() {
 
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
@@ -44,9 +44,9 @@ public class TestC127324233SealDynamicForm {
     }
 
     @AfterTest
-    public void testSealDynamicFormPostcondition() {
+    public void testC127324233SealDynamicFormPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
-        testC127324225DeleteDynamicForm.testDeleteDynamicForm();
+        testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();
     }
 
 }

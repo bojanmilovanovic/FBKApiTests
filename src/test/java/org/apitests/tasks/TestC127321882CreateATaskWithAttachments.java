@@ -19,7 +19,7 @@ import java.io.IOException;
 public class TestC127321882CreateATaskWithAttachments {
 
     @Test(groups = {"tasks", "tp1"})
-    public void testCreateATaskWithAttachments() throws IOException {
+    public void testC127321882CreateATaskWithAttachments() throws IOException {
 
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;

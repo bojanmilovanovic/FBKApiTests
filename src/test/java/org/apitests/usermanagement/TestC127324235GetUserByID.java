@@ -15,9 +15,9 @@ import org.testng.annotations.Test;
 public class TestC127324235GetUserByID {
 
     @BeforeTest
-    public void testGetUserByIDPrecondition() {
+    public void testC127324235GetUserByIDPrecondition() {
         TestC127321898GetAllUsersByLoginName testC127321898GetAllUsersByLoginName = new TestC127321898GetAllUsersByLoginName();
-        testC127321898GetAllUsersByLoginName.testGetAllUsersByLoginName();
+        testC127321898GetAllUsersByLoginName.testC127321898GetAllUsersByLoginName();
     }
 
     @Test(groups = {"usermanagement", "tp1"})
