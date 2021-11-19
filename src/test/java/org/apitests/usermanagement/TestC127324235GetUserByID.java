@@ -21,7 +21,7 @@ public class TestC127324235GetUserByID {
     }
 
     @Test(groups = {"usermanagement", "tp1"})
-    public void testGetUserByID() {
+    public void testC127324235GetUserByID() {
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
 
