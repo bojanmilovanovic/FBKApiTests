@@ -37,7 +37,11 @@ public class TestRailRunner extends TestListenerAdapter {
             client.setPassword(password);
             HashMap<Object, Object> data = new HashMap<>();
             data.put("include_all", true);
-            data.put("name", ENVIRONMENT+" API TestRun - " + formatter.format(date));
+            if(System.getenv("createTestRailRun")==null || System.getenv("createTestRailRun").isEmpty()) {
+                data.put("name", ENVIRONMENT + " API TestRun - " + formatter.format(date));
+            }else{
+                data.put("name", ENVIRONMENT + " API "+System.getenv("createTestRailRun")+" TestRun - " + formatter.format(date));
+            }
             data.put("description", "Description: Test run of automated API test for FBK");
             data.put("suite_id", suiteID);
             data.put("assignedto_id", 68);
@@ -49,8 +53,6 @@ public class TestRailRunner extends TestListenerAdapter {
                 e.printStackTrace();
             }
             Reporter.log("Test run is created.", true);
-        }else{
-            Reporter.log("Test run will not be created.", true);
         }
     }
 
