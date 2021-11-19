@@ -59,7 +59,7 @@ public class TestRailRunner extends TestListenerAdapter {
             if(System.getenv("createTestRailRun")==null || System.getenv("createTestRailRun").isEmpty()) {
                 dataTestRun.put("name", ENVIRONMENT + " API TestRun - " + formatter.format(date));
             }else{
-                dataTestRun.put("name", ENVIRONMENT + " API "+System.getenv("createTestRailRun")+" TestRun - " + formatter.format(date));
+                dataTestRun.put("name", ENVIRONMENT + " API "+System.getenv("modulesToRun").toUpperCase(Locale.ROOT)+" TestRun - " + formatter.format(date));
             }
             dataTestRun.put("case_ids", arrCaseIds);
             dataTestRun.put("description", "Description: Test run of automated API test for FBK");
