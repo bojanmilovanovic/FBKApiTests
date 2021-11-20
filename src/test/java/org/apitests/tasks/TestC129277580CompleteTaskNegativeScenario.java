@@ -21,7 +21,7 @@ public class TestC129277580CompleteTaskNegativeScenario {
     public void testC129277580CompleteTaskNegativeScenarioPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
-        dbHelper.runUpdate("update tsk_task set status = 'COMPLETED' where related_id = '"+ Globals.TASK_FORMROUTE_ID+"'");
+        dbHelper.runUpdate("update tsk_task set status = 'COMPLETED' where related_id = '"+ Globals.TASK_ID+"'");
         dbHelper.closeConnection();
     }
 

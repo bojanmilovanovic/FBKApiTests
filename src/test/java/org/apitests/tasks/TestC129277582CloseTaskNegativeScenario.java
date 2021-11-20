@@ -21,7 +21,7 @@ public class TestC129277582CloseTaskNegativeScenario {
     public void testC129277582CloseTaskNegativeScenarioPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
-        dbHelper.runUpdate("update tsk_task set status = 'CLOSED' where related_id = '"+ Globals.TASK_FORMROUTE_ID+"'");
+        dbHelper.runUpdate("update tsk_task set status = 'CLOSED' where related_id = '"+ Globals.TASK_ID+"'");
         dbHelper.closeConnection();
     }
 

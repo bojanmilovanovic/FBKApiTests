@@ -19,7 +19,7 @@ public class TestC129277578CompleteTask {
     public void testC129277578CompleteTaskPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
-        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_FORMROUTE_ID+"'");
+        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_ID+"'");
         dbHelper.closeConnection();
     }
 

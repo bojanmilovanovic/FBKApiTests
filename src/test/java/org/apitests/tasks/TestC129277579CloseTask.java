@@ -19,7 +19,7 @@ public class TestC129277579CloseTask {
     public void testC129277579CloseTaskPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
-        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_FORMROUTE_ID+"'");
+        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_ID+"'");
         dbHelper.closeConnection();
     }
 
