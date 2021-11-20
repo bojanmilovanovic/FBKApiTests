@@ -8,6 +8,7 @@ import org.apitests.core.DBHelper;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 
@@ -21,7 +22,7 @@ public class TestC127322922UpdateFundingStatusAacceptedAfinished {
     @BeforeMethod
     public void testC127322922UpdateFundingStatusAacceptedAfinishedPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
-        dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
+        Reporter.log(String.valueOf(dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'")), true);
         dbHelper.closeConnection();
     }
 
