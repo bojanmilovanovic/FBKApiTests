@@ -22,7 +22,8 @@ public class TestC127322922UpdateFundingStatusAacceptedAfinished {
     @BeforeMethod
     public void testC127322922UpdateFundingStatusAacceptedAfinishedPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
-        Reporter.log(String.valueOf(dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'")), true);
+        int i = dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
+        System.out.println(i);
         dbHelper.closeConnection();
     }
 

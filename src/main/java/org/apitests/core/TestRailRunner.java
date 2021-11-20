@@ -85,7 +85,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Reporter.log("Test case " + itr.getName().substring(5, 14) + " passed.", true);
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " passed.", true);
             }
             //Iterator for skipped tests
             itrSkipped = context.getSkippedTests().getAllResults().iterator();
@@ -99,7 +99,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Reporter.log("Test case " + itr.getName().substring(5, 14) + " skipped.", true);
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " skipped.", true);
             }
             //Iterator for failed tests
             itrFailed = context.getFailedTests().getAllResults().iterator();
@@ -113,7 +113,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Reporter.log("Test case " + itr.getName().substring(5, 14) + " failed.", true);
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " failed.", true);
             }
             Reporter.log("Test run is created.", true);
         }
