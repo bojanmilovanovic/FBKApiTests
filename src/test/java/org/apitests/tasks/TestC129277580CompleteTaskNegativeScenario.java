@@ -17,7 +17,7 @@ public class TestC129277580CompleteTaskNegativeScenario {
 
     String MESSAGE_RESPONSE = "[Completion not possible for task in status - COMPLETED.]";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC129277580CompleteTaskNegativeScenarioPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();

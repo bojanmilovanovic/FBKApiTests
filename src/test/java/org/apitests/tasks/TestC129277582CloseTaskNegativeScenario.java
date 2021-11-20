@@ -17,7 +17,7 @@ public class TestC129277582CloseTaskNegativeScenario {
 
     String MESSAGE_RESPONSE = "[Closing not possible for task in status - CLOSED.]";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC129277582CloseTaskNegativeScenarioPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();

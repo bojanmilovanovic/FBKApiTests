@@ -16,7 +16,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127321890GetTaskById {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127321890GetTaskByIdPrecondition() throws IOException {
         TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();

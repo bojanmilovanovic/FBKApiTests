@@ -16,11 +16,10 @@ import org.testng.annotations.Test;
 @Listeners({TestRailRunner.class})
 public class TestC127321940UpdateFormRouteStatusNegativeScenarioAFinished {
 
-    //"A_accepted","A_error","A_finished","A_received","A_rejected","A_return","B_aborted","B_finished","B_inwork","C_deleted","C_finished","C_inwork","C_new"
     private String statusBefore = "A_finished";
     private String[] statusAfter = new String[]{"A_accepted","A_error","A_received","A_rejected","A_return","B_aborted","B_finished","C_deleted","C_finished","C_inwork","C_new"};
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127321940UpdateFormRouteStatusNegativeScenarioAFinishedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();

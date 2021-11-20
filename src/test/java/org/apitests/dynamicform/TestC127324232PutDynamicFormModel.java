@@ -17,7 +17,7 @@ import static org.testng.reporters.Files.readFile;
 @Listeners({TestRailRunner.class})
 public class TestC127324232PutDynamicFormModel {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127324232PutDynamicFormModelPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
         testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
@@ -46,7 +46,7 @@ public class TestC127324232PutDynamicFormModel {
 
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testC127324232PutDynamicFormModelPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();

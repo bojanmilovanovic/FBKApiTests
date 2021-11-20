@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @Listeners({TestRailRunner.class})
 public class TestC129277578CompleteTask {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC129277578CompleteTaskPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();

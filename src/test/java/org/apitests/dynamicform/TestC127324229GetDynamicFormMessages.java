@@ -14,7 +14,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324229GetDynamicFormMessages {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127324229GetDynamicFormMessagesPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
         testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
@@ -38,7 +38,7 @@ public class TestC127324229GetDynamicFormMessages {
 
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testGetDynamicFormMessagesPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();

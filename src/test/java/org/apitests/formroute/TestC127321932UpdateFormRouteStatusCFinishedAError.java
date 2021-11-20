@@ -19,7 +19,7 @@ public class TestC127321932UpdateFormRouteStatusCFinishedAError {
     private String statusBefore = "C_finished";
     private String statusAfter = "A_error";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127321932UpdateFormRouteStatusCFinishedAErrorPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();

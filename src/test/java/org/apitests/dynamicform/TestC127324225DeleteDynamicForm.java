@@ -16,7 +16,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324225DeleteDynamicForm {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127324225DeleteDynamicFormPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
         testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();

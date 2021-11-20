@@ -19,7 +19,7 @@ public class TestC127321935UpdateFormRouteStatusCInworkCDeleted {
     private String statusBefore = "C_inwork";
     private String statusAfter = "C_deleted";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127321935UpdateFormRouteStatusCInworkCDeletedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();

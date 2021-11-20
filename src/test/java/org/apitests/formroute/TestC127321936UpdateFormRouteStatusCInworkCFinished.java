@@ -19,7 +19,7 @@ public class TestC127321936UpdateFormRouteStatusCInworkCFinished {
     private String statusBefore = "C_inwork";
     private String statusAfter = "C_finished";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127321936UpdateFormRouteStatusCInworkCFinishedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();

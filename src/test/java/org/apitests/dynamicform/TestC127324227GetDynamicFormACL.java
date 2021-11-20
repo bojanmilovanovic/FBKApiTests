@@ -14,7 +14,7 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324227GetDynamicFormACL {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127324227GetDynamicFormACLPrecondition() throws IOException {
         TestC127324224CreateDynamicForm testC127324224CreateDynamicForm = new TestC127324224CreateDynamicForm();
         testC127324224CreateDynamicForm.testC127324224CreateDynamicForm();
@@ -40,7 +40,7 @@ public class TestC127324227GetDynamicFormACL {
         Assert.assertEquals(response.jsonPath().getString("listPermissions.permissionRoles"), permissions, "Permissions are not correctly returned.");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testC127324227GetDynamicFormACLPostcondition() {
         TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
         testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();
