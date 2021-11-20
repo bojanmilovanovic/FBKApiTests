@@ -19,7 +19,7 @@ public class TestC127323259UpdateFundingStatusCinworkCdeleted {
     private String statusBefore = "C_inwork";
     private String statusAfter = "C_deleted";
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127323259UpdateFundingStatusCinworkCdeletedPrecondition() throws Exception {
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();

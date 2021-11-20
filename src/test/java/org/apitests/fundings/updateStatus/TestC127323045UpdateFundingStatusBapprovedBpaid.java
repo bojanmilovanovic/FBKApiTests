@@ -18,7 +18,7 @@ public class TestC127323045UpdateFundingStatusBapprovedBpaid {
     private String statusAfter = "B_paid";
     DBHelper dbHelper = new DBHelper();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127323045UpdateFundingStatusBapprovedBpaidPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
@@ -42,7 +42,7 @@ public class TestC127323045UpdateFundingStatusBapprovedBpaid {
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testC127323045UpdateFundingStatusBapprovedBpaidPostcondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");

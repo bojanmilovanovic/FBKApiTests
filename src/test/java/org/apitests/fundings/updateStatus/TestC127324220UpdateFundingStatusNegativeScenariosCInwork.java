@@ -21,7 +21,7 @@ public class TestC127324220UpdateFundingStatusNegativeScenariosCInwork {
     private String[] statusAfterC_inwork = new String[]{"A_accepted", "A_finished", "A_return", "B_approved", "B_changed", "B_inwork", "B_legal", "B_paid", "B_partlypaid"};
     DBHelper dbHelper = new DBHelper();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127324220UpdateFundingStatusNegativeScenariosCInworkPrecondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
@@ -46,7 +46,7 @@ public class TestC127324220UpdateFundingStatusNegativeScenariosCInwork {
         }
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testC127324220UpdateFundingStatusNegativeScenariosCInworkPostcondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");

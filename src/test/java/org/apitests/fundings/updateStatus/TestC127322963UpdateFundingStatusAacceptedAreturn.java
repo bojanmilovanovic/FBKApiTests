@@ -18,9 +18,8 @@ public class TestC127322963UpdateFundingStatusAacceptedAreturn {
     private String statusAfter = "A_return";
     DBHelper dbHelper = new DBHelper();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void testC127322963UpdateFundingStatusAacceptedAreturnPrecondition() throws Exception {
-        DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();
@@ -43,7 +42,7 @@ public class TestC127322963UpdateFundingStatusAacceptedAreturn {
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void testC127322963UpdateFundingStatusAacceptedAreturnPostcondition() throws Exception {
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
