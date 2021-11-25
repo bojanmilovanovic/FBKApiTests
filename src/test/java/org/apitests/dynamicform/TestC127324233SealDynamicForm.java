@@ -43,10 +43,5 @@ public class TestC127324233SealDynamicForm {
 
     }
 
-    @AfterTest(alwaysRun = true)
-    public void testC127324233SealDynamicFormPostcondition() {
-        TestC127324225DeleteDynamicForm testC127324225DeleteDynamicForm = new TestC127324225DeleteDynamicForm();
-        testC127324225DeleteDynamicForm.testC127324225DeleteDynamicForm();
-    }
 
 }
