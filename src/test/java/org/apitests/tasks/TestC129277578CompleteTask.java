@@ -23,7 +23,7 @@ public class TestC129277578CompleteTask {
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
-        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_ID+"'");
+        dbHelper.runUpdate("update tsk_task set status = 'READY' where related_id = '"+ Globals.TASK_FORMROUTE_ID+"'");
         dbHelper.closeConnection();
     }
 
