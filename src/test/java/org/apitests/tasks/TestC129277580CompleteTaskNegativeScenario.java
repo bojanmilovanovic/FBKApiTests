@@ -19,13 +19,17 @@ public class TestC129277580CompleteTaskNegativeScenario {
 
     @BeforeMethod(alwaysRun = true)
     public void testC129277580CompleteTaskNegativeScenarioPrecondition() throws Exception {
+        TestC127321882CreateATaskWithAttachments testC127321882CreateATaskWithAttachments = new TestC127321882CreateATaskWithAttachments();
+        testC127321882CreateATaskWithAttachments.testC127321882CreateATaskWithAttachments();
+        TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();
         dbHelper.runUpdate("update tsk_task set status = 'COMPLETED' where related_id = '"+ Globals.TASK_ID+"'");
         dbHelper.closeConnection();
     }
 
-    @Test(groups = {"tasks", "tp1"})
+    @Test(groups = {"tasks", "tp1"}, priority = 2)
     public void testC129277580CompleteTaskNegativeScenario() {
 
         Token token = new Token("sap");

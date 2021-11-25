@@ -25,7 +25,7 @@ public class TestC129430163GetAllFilteredTasks {
         testC127321882CreateATaskWithAttachments.testC127321882CreateATaskWithAttachments();
     }
 
-    @Test(groups = {"tasks", "tp1"})
+    @Test(groups = {"tasks", "tp1"}, priority = 1)
     public void testC129430163GetAllFilteredTasks() throws IOException {
 
         Token token = new Token("sap");
