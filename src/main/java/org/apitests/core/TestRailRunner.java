@@ -29,7 +29,6 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         if (CREATE_TEST_RUN || JENKINS_CREATE_TEST_RUN) {
-
             //Create a test run
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
             Date date = new Date();
@@ -56,7 +55,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 ITestResult itr = itrSkipped.next();
                 arrCaseIds.add(Integer.valueOf(itr.getName().substring(5, 14)));
             }
-            if(System.getenv("createTestRailRun")==null || System.getenv("createTestRailRun").isEmpty()) {
+            if(System.getenv("modulesToRun")==null || System.getenv("modulesToRun").isEmpty()) {
                 dataTestRun.put("name", ENVIRONMENT + " API TestRun - " + formatter.format(date));
             }else{
                 dataTestRun.put("name", ENVIRONMENT + " API "+System.getenv("modulesToRun").toUpperCase(Locale.ROOT)+" TestRun - " + formatter.format(date));

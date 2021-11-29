@@ -43,6 +43,5 @@ public class TestC127321900CreatePartner {
             Assert.assertEquals(response.getStatusCode(), 201);
             Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Status is false");
         }
-
     }
 }
