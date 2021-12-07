@@ -31,6 +31,7 @@ public class TestRailRunner extends TestListenerAdapter {
     public void onFinish(ITestContext context) {
         // Use an existing TestRail test run
         if(JENKINS_USE_EXISTING_SUITE > 0 && !CREATE_TEST_RUN && !JENKINS_CREATE_TEST_RUN){
+            TEST_RUN_ID = JENKINS_USE_EXISTING_SUITE;
             //Update test run with results
             //Iterator for passed tests
             Iterator<ITestResult> itrPassed = context.getPassedTests().getAllResults().iterator();
