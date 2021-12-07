@@ -24,10 +24,59 @@ public class TestRailRunner extends TestListenerAdapter {
     String projectID = "14";
     String suiteID = "24543";
     boolean JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createTestRailRun"));
+    int JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
 
 
     @Override
     public void onFinish(ITestContext context) {
+        // Use an existing TestRail test run
+        if(JENKINS_USE_EXISTING_SUITE > 0 && !CREATE_TEST_RUN && !JENKINS_CREATE_TEST_RUN){
+            //Update test run with results
+            //Iterator for passed tests
+            Iterator<ITestResult> itrPassed = context.getPassedTests().getAllResults().iterator();
+            while(itrPassed.hasNext()) {
+                ITestResult itr = itrPassed.next();
+                HashMap<Object, Object> dataTestResults = new HashMap<>();
+                dataTestResults.put("status_id", TEST_CASE_PASSED_STATUS);
+                dataTestResults.put("comment", "Test passed");
+                try {
+                    client.sendPost("add_result_for_case/" + TEST_RUN_ID + "/" + Integer.valueOf(itr.getName().substring(5, 14)) + "", dataTestResults);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " passed.", true);
+            }
+            //Iterator for skipped tests
+            Iterator<ITestResult> itrSkipped = context.getSkippedTests().getAllResults().iterator();
+            while(itrSkipped.hasNext()) {
+                ITestResult itr = itrSkipped.next();
+                HashMap<Object, Object> dataTestResults = new HashMap<>();
+                dataTestResults.put("status_id", TEST_CASE_SKIPPED_STATUS);
+                dataTestResults.put("comment", "Skip reason: " + itr.getThrowable());
+                try {
+                    client.sendPost("add_result_for_case/" + TEST_RUN_ID + "/" + Integer.valueOf(itr.getName().substring(5, 14)) + "", dataTestResults);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " skipped.", true);
+            }
+            //Iterator for failed tests
+            Iterator<ITestResult> itrFailed = context.getFailedTests().getAllResults().iterator();
+            while(itrFailed.hasNext()) {
+                ITestResult itr = itrFailed.next();
+                HashMap<Object, Object> dataTestResults = new HashMap<>();
+                dataTestResults.put("status_id", TEST_CASE_FAILED_STATUS);
+                dataTestResults.put("comment", "Fail reason: " + itr.getThrowable());
+                try {
+                    client.sendPost("add_result_for_case/" + TEST_RUN_ID + "/" + Integer.valueOf(itr.getName().substring(5, 14)) + "", dataTestResults);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Reporter.log("Test case C" + itr.getName().substring(5, 14) + " failed.", true);
+            }
+        }
+
+        // Create a new run for TestRail and populate results accordingly
         if (CREATE_TEST_RUN || JENKINS_CREATE_TEST_RUN) {
             //Create a test run
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
