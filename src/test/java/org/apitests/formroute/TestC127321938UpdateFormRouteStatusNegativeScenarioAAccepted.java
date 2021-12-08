@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class TestC127321938UpdateFormRouteStatusNegativeScenarioAAccepted {
 
     private String statusBefore = "A_accepted";
-    private String[] statusAfter = new String[]{"A_error", "A_received", "B_aborted", "B_finished", "B_inwork", "C_deleted", "C_finished", "C_inwork", "C_new"};
+    private String[] statusAfter = new String[]{"A_received", "B_aborted", "B_finished", "B_inwork", "C_deleted", "C_finished", "C_inwork", "C_new"};
 
     @BeforeMethod(alwaysRun = true)
     public void testC127321938UpdateFormRouteStatusNegativeScenarioAAcceptedPrecondition() throws Exception {

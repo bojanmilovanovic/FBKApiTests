@@ -24,12 +24,13 @@ public class TestRailRunner extends TestListenerAdapter {
     String projectID = "14";
     String suiteID = "24543";
     boolean JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createTestRailRun"));
-    int JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
+    int JENKINS_USE_EXISTING_SUITE = 0;
 
 
     @Override
     public void onFinish(ITestContext context) {
         // Use an existing TestRail test run
+        JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
         if(JENKINS_USE_EXISTING_SUITE > 0 && !CREATE_TEST_RUN && !JENKINS_CREATE_TEST_RUN){
             TEST_RUN_ID = JENKINS_USE_EXISTING_SUITE;
             client.setUser(username);
