@@ -28,8 +28,12 @@ public class TestC127322922UpdateFundingStatusAacceptedAfinished {
 
     @Test(groups = {"fundings", "tp1"})
     public void testC127322922UpdateFundingStatusAacceptedAfinished(){
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -37,10 +41,11 @@ public class TestC127322922UpdateFundingStatusAacceptedAfinished {
         String requestBody = "{ \"state\": \""+statusAfter+"\" }";
         request.body(requestBody);
 
+        // Response and assertion
         Response response = request.put("/fundings/"+Globals.FUNDING_ID+"/state");
-
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+
     }
 
     @AfterMethod(alwaysRun = true)

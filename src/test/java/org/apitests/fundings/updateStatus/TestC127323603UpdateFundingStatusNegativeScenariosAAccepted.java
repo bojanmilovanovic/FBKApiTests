@@ -30,13 +30,18 @@ public class TestC127323603UpdateFundingStatusNegativeScenariosAAccepted {
 
     @Test(groups = {"fundings", "tp1"})
     public void testC127323603UpdateFundingStatusNegativeScenariosAAccepted(){
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
+        // Response and assertion
         for(int i=0; i<statusAfterA_accepted.length; i++) {
             String requestBody = "{ \"state\": \"" + statusAfterA_accepted[i] + "\" }";
             request.body(requestBody);

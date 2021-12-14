@@ -20,17 +20,20 @@ public class TestC127324237SearchForUsers {
     @Test(groups = {"usermanagement", "tp1"})
     public void testC127324237SearchForUsers() throws IOException {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
-        File file = new File("src/test/java/org/apitests/usermanagement/body/TestSearchForUsersBody.json");
-        String requestBody = Files.readFile(file);
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
+        File file = new File("src/test/java/org/apitests/usermanagement/body/TestSearchForUsersBody.json");
+        String requestBody = Files.readFile(file);
         request.body(requestBody);
 
+        // Response and assertion
         Response response = request.post("/users/search");
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));

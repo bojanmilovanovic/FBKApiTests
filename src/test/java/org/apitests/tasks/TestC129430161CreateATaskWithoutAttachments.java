@@ -21,6 +21,7 @@ public class TestC129430161CreateATaskWithoutAttachments {
     @Test(groups = {"tasks", "tp1"})
     public void testC129430161CreateATaskWithoutAttachments() throws IOException {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         String applicationNo = Globals.FUNDING_ID;
@@ -29,6 +30,7 @@ public class TestC129430161CreateATaskWithoutAttachments {
         requestBody = requestBody.replace("FUNDING_ID", applicationNo);
         String date = TimeHelper.getNextWorkingDay();
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -41,8 +43,8 @@ public class TestC129430161CreateATaskWithoutAttachments {
         request.multiPart("resubmissionDate", date);
         request.multiPart("context", requestBody, "application/json");
 
+        // Response and assertion
         Response response = request.post("/taskbulk");
-
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

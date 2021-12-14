@@ -30,13 +30,18 @@ public class TestC127324211UpdateFundingStatusNegativeScenariosBLegal {
 
     @Test(groups = {"fundings", "tp1"})
     public void testC127324211UpdateFundingStatusNegativeScenariosBLegal(){
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
+        // Response and assertion
         for(int i=0; i<statusAfterB_legal.length; i++) {
             String requestBody = "{ \"state\": \"" + statusAfterB_legal[i] + "\" }";
             request.body(requestBody);
@@ -44,6 +49,7 @@ public class TestC127324211UpdateFundingStatusNegativeScenariosBLegal {
             Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting "+statusBefore+" to "+statusAfterB_legal[i]+".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
         }
+
     }
 
     @AfterMethod(alwaysRun = true)

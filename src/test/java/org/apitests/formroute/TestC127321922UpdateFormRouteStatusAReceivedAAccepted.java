@@ -29,8 +29,12 @@ public class TestC127321922UpdateFormRouteStatusAReceivedAAccepted {
 
     @Test(groups = {"formroute", "tp1"})
     public void testC127321922UpdateFormRouteStatusAReceivedAAccepted(){
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -38,9 +42,11 @@ public class TestC127321922UpdateFormRouteStatusAReceivedAAccepted {
         String requestBody = "{ \"state\": \""+statusAfter+"\" }";
         request.body(requestBody);
 
+        // Response and assertion
         Response response = request.put("/formroute/"+Globals.FORMROUTE_ID+"/state");
-
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+
     }
+
 }

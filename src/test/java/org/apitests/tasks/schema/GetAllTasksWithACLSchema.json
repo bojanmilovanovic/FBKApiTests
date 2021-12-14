@@ -1,0 +1,435 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "tasks": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "ownerId": {
+              "type": "string"
+            },
+            "ownerEnterpriseCustomerId": {
+              "type": "string"
+            },
+            "partnerNo": {
+              "type": "string"
+            },
+            "customerNo": {
+              "type": "string"
+            },
+            "relatedType": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "assigneeId": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "executionUrl": {
+              "type": "string"
+            },
+            "customerRelevant": {
+              "type": "boolean"
+            },
+            "relatedId": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "assigneeName": {
+              "type": "string"
+            },
+            "taskStatus": {
+              "type": "string"
+            },
+            "permissionInformation": {
+              "type": "object",
+              "properties": {
+                "resubmissionAllowed": {
+                  "type": "boolean"
+                },
+                "assignAllowed": {
+                  "type": "boolean"
+                },
+                "detailsAllowed": {
+                  "type": "boolean"
+                },
+                "finishAllowed": {
+                  "type": "boolean"
+                },
+                "performTaskAllowed": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "resubmissionAllowed",
+                "assignAllowed",
+                "detailsAllowed",
+                "finishAllowed",
+                "performTaskAllowed"
+              ]
+            },
+            "auditInfo": {
+              "type": "object",
+              "properties": {
+                "createdBy": {
+                  "type": "string"
+                },
+                "createdDate": {
+                  "type": "string"
+                },
+                "lastModifiedBy": {
+                  "type": "string"
+                },
+                "lastModifiedDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "createdBy",
+                "createdDate",
+                "lastModifiedBy",
+                "lastModifiedDate"
+              ]
+            }
+          },
+          "required": [
+            "ownerId",
+            "ownerEnterpriseCustomerId",
+            "partnerNo",
+            "customerNo",
+            "relatedType",
+            "subject",
+            "assigneeId",
+            "category",
+            "type",
+            "executionUrl",
+            "customerRelevant",
+            "relatedId",
+            "content",
+            "deadline",
+            "resubmissionDate",
+            "id",
+            "assigneeName",
+            "taskStatus",
+            "permissionInformation",
+            "auditInfo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ownerEnterpriseCustomerId": {
+              "type": "string"
+            },
+            "partnerNo": {
+              "type": "string"
+            },
+            "customerNo": {
+              "type": "string"
+            },
+            "relatedType": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "executionUrl": {
+              "type": "string"
+            },
+            "customerRelevant": {
+              "type": "boolean"
+            },
+            "initiatorType": {
+              "type": "string"
+            },
+            "relatedId": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "taskStatus": {
+              "type": "string"
+            },
+            "permissionInformation": {
+              "type": "object",
+              "properties": {
+                "resubmissionAllowed": {
+                  "type": "boolean"
+                },
+                "assignAllowed": {
+                  "type": "boolean"
+                },
+                "detailsAllowed": {
+                  "type": "boolean"
+                },
+                "finishAllowed": {
+                  "type": "boolean"
+                },
+                "performTaskAllowed": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "resubmissionAllowed",
+                "assignAllowed",
+                "detailsAllowed",
+                "finishAllowed",
+                "performTaskAllowed"
+              ]
+            },
+            "auditInfo": {
+              "type": "object",
+              "properties": {
+                "createdBy": {
+                  "type": "string"
+                },
+                "createdDate": {
+                  "type": "string"
+                },
+                "lastModifiedBy": {
+                  "type": "string"
+                },
+                "lastModifiedDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "createdBy",
+                "createdDate",
+                "lastModifiedBy",
+                "lastModifiedDate"
+              ]
+            }
+          },
+          "required": [
+            "ownerEnterpriseCustomerId",
+            "partnerNo",
+            "customerNo",
+            "relatedType",
+            "externalId",
+            "subject",
+            "category",
+            "type",
+            "executionUrl",
+            "customerRelevant",
+            "initiatorType",
+            "relatedId",
+            "content",
+            "deadline",
+            "resubmissionDate",
+            "id",
+            "taskStatus",
+            "permissionInformation",
+            "auditInfo"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ownerId": {
+              "type": "string"
+            },
+            "ownerEnterpriseCustomerId": {
+              "type": "string"
+            },
+            "partnerNo": {
+              "type": "string"
+            },
+            "customerNo": {
+              "type": "string"
+            },
+            "relatedType": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "assigneeId": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "executionUrl": {
+              "type": "string"
+            },
+            "customerRelevant": {
+              "type": "boolean"
+            },
+            "relatedId": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "assigneeName": {
+              "type": "string"
+            },
+            "taskStatus": {
+              "type": "string"
+            },
+            "permissionInformation": {
+              "type": "object",
+              "properties": {
+                "resubmissionAllowed": {
+                  "type": "boolean"
+                },
+                "assignAllowed": {
+                  "type": "boolean"
+                },
+                "detailsAllowed": {
+                  "type": "boolean"
+                },
+                "finishAllowed": {
+                  "type": "boolean"
+                },
+                "performTaskAllowed": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "resubmissionAllowed",
+                "assignAllowed",
+                "detailsAllowed",
+                "finishAllowed",
+                "performTaskAllowed"
+              ]
+            },
+            "auditInfo": {
+              "type": "object",
+              "properties": {
+                "createdBy": {
+                  "type": "string"
+                },
+                "createdDate": {
+                  "type": "string"
+                },
+                "lastModifiedBy": {
+                  "type": "string"
+                },
+                "lastModifiedDate": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "createdBy",
+                "createdDate",
+                "lastModifiedBy",
+                "lastModifiedDate"
+              ]
+            }
+          },
+          "required": [
+            "ownerId",
+            "ownerEnterpriseCustomerId",
+            "partnerNo",
+            "customerNo",
+            "relatedType",
+            "subject",
+            "assigneeId",
+            "category",
+            "type",
+            "executionUrl",
+            "customerRelevant",
+            "relatedId",
+            "content",
+            "deadline",
+            "resubmissionDate",
+            "id",
+            "assigneeName",
+            "taskStatus",
+            "permissionInformation",
+            "auditInfo"
+          ]
+        }
+      ]
+    },
+    "pageResponse": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer"
+        },
+        "numberOfElements": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "numberOfElements",
+        "size",
+        "totalElements",
+        "totalPages"
+      ]
+    }
+  },
+  "required": [
+    "_status",
+    "tasks",
+    "pageResponse"
+  ]
+}

@@ -26,10 +26,12 @@ public class TestC127324232PutDynamicFormModel {
     @Test(groups = {"dynamicform", "tp1"})
     public void testC127324232PutDynamicFormModel() throws IOException {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -38,8 +40,8 @@ public class TestC127324232PutDynamicFormModel {
         String requestBody = readFile(file).replace("{{dynamicFormID}}", dynamicFormId);
         request.body(requestBody);
 
+        // Response and assertion
         Response response = request.put("/dynamicform/meta");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
         Assert.assertTrue(response.jsonPath().getBoolean("updateInfo[0].updated"), "Update flag is not correctly returned.");

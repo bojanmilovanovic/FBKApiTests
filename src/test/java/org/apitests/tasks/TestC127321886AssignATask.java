@@ -25,9 +25,11 @@ public class TestC127321886AssignATask {
     @Test(groups = {"tasks", "tp1"})
     public void testC127321886AssignATask() {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -35,8 +37,8 @@ public class TestC127321886AssignATask {
         String body = "{  \"userId\": \""+Globals.ASSIGNEE_ID+"\" }";
         request.body(body);
 
+        // Response and assertion
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/assign");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

@@ -21,6 +21,7 @@ public class TestC127321882CreateATaskWithAttachments {
     @Test(groups = {"tasks", "tp1"})
     public void testC127321882CreateATaskWithAttachments() throws IOException {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         String applicationNo = Globals.FUNDING_ID;
@@ -30,6 +31,7 @@ public class TestC127321882CreateATaskWithAttachments {
         File attachmentFile = new File("src/test/java/org/apitests/tasks/testfiles/TestFile.pdf");
         String date = TimeHelper.getNextWorkingDay();
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -45,8 +47,8 @@ public class TestC127321882CreateATaskWithAttachments {
         request.multiPart("resubmissionDate", date);
         request.multiPart("context", requestBody, "application/json");
 
+        // Response and assertion
         Response response = request.post("/taskbulk");
-
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

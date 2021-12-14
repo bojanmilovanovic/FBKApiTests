@@ -19,8 +19,12 @@ public class TestC127324222SearchFundingUsersACLs {
 
     @Test(groups = {"fundings", "tp1"})
     public void testC127324222SearchFundingUsersACLs() throws IOException {
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -29,9 +33,11 @@ public class TestC127324222SearchFundingUsersACLs {
         String body = Files.readFile(file);
         request.body(body);
 
+        // Response and assertion
         Response response = request.post("/fundings/user/acls/search");
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+
     }
 
 }

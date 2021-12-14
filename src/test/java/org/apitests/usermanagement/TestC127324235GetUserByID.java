@@ -22,16 +22,19 @@ public class TestC127324235GetUserByID {
 
     @Test(groups = {"usermanagement", "tp1"})
     public void testC127324235GetUserByID() {
+
+        // Generate token and set up the host
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
+        // Response and assertion
         Response response = request.get("/users/"+Globals.USER_ID);
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

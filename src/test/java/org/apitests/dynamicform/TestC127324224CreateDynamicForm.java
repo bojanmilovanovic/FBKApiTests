@@ -21,23 +21,25 @@ public class TestC127324224CreateDynamicForm {
     @Test(groups = {"dynamicform", "tp1"})
     public void testC127324224CreateDynamicForm() throws IOException {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
         File file = new File("src/test/java/org/apitests/dynamicform/body/TestCreateDynamicFormBody.json");
         String requestBody = readFile(file);
-
         request.body(requestBody);
 
+        // Response and assertion
         Response response = request.post("/dynamicform");
-
         Assert.assertEquals(response.getStatusCode(), 201);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 
+        // Global variable preparation for next tests
         Globals.DYNAMIC_FORM_ID = response.jsonPath().getString("id");
 
     }

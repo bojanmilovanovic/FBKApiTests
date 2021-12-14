@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "_timestamp": {
+      "type": "string"
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string"
+        },
+        "ownerEnterpriseCustomerId": {
+          "type": "string"
+        },
+        "partnerNo": {
+          "type": "string"
+        },
+        "customerNo": {
+          "type": "string"
+        },
+        "relatedType": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "assigneeId": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "executionUrl": {
+          "type": "string"
+        },
+        "customerRelevant": {
+          "type": "boolean"
+        },
+        "relatedId": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "deadline": {
+          "type": "string"
+        },
+        "resubmissionDate": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "assigneeName": {
+          "type": "string"
+        },
+        "taskStatus": {
+          "type": "string"
+        },
+        "auditInfo": {
+          "type": "object",
+          "properties": {
+            "createdBy": {
+              "type": "string"
+            },
+            "createdDate": {
+              "type": "string"
+            },
+            "lastModifiedBy": {
+              "type": "string"
+            },
+            "lastModifiedDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdBy",
+            "createdDate",
+            "lastModifiedBy",
+            "lastModifiedDate"
+          ]
+        },
+        "attachments": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "partnerNo",
+        "customerNo",
+        "relatedType",
+        "subject",
+        "category",
+        "type",
+        "executionUrl",
+        "customerRelevant",
+        "relatedId",
+        "content",
+        "deadline",
+        "resubmissionDate",
+        "id",
+        "taskStatus",
+        "auditInfo",
+        "attachments"
+      ]
+    }
+  },
+  "required": [
+    "_status",
+    "_timestamp",
+    "task"
+  ]
+}

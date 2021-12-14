@@ -17,9 +17,11 @@ public class TestC127321888GetAllTasksAdminApi {
     @Test(groups = {"tasks", "tp1"})
     public void testC127321888GetAllTasksAdminApi() {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/admin-api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -27,8 +29,8 @@ public class TestC127321888GetAllTasksAdminApi {
         JSONObject requestParams = new JSONObject();
         request.body(requestParams.toString());
 
+        // Response and assertion
         Response response = request.post("/tasks/search");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

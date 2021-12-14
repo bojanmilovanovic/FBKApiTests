@@ -26,18 +26,20 @@ public class TestC127324233SealDynamicForm {
     @Test(groups = {"dynamicform", "tp1"})
     public void testC127324233SealDynamicForm() {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
         request.body("{\"readonly\": true}");
 
+        // Response and assertion
         Response response = request.put("/dynamicform/"+dynamicFormId+"/seal");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

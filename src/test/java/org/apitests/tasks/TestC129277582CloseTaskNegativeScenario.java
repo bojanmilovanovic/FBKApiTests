@@ -32,9 +32,11 @@ public class TestC129277582CloseTaskNegativeScenario {
     @Test(groups = {"tasks", "tp1"}, priority = 2)
     public void testC129277582CloseTaskNegativeScenario() {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/admin-api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
@@ -42,8 +44,8 @@ public class TestC129277582CloseTaskNegativeScenario {
         String body = "{ }";
         request.body(body);
 
+        // Response and assertion
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/close");
-
         Assert.assertEquals(response.getStatusCode(), 400, "Response status code is not 400");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true instead of false");
         Assert.assertEquals(response.jsonPath().getString("_messages.text"), MESSAGE_RESPONSE, "Response message text is wrong");

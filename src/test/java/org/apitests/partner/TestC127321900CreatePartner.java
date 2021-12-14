@@ -21,17 +21,22 @@ public class TestC127321900CreatePartner {
 
     @Test(groups = {"partner", "tp1"})
     public void testC127321900CreatePartner() throws IOException {
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkpartner/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
-
         File file = new File("src/test/java/org/apitests/partner/body/TestUpdatePartnerBody.json");
         String requestBody = readFile(file);
         requestBody = requestBody.replace("USERUUID", Globals.USER_UUID);
         request.body(requestBody);
+
+        // Response and assertion
         Response response = request.post("/partners");
         if(response.getStatusCode()==422) {
             Assert.assertEquals(response.getStatusCode(), 422);
@@ -43,5 +48,7 @@ public class TestC127321900CreatePartner {
             Assert.assertEquals(response.getStatusCode(), 201);
             Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Status is false");
         }
+
     }
+
 }

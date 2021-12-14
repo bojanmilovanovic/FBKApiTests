@@ -23,21 +23,24 @@ public class TestC127324227GetDynamicFormACL {
     @Test(groups = {"dynamicform", "tp1"})
     public void testC127324227GetDynamicFormACL() {
 
+        // Generate token and set up the host
         Token token = new Token("sap");
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
         String permissions = "[[DELETE, READ, WRITE, ACL]]";
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;
 
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
+        // Response and assertion
         Response response = request.get("/dynamicform/"+dynamicFormId+"/acl");
-
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
         Assert.assertEquals(response.jsonPath().getString("listPermissions.permissionRoles"), permissions, "Permissions are not correctly returned.");
+
     }
 
     @AfterMethod(alwaysRun = true)

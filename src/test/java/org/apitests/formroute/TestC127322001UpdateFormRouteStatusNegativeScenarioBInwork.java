@@ -29,13 +29,18 @@ public class TestC127322001UpdateFormRouteStatusNegativeScenarioBInwork {
 
     @Test(groups = {"formroute", "tp1"})
     public void testC127322001UpdateFormRouteStatusNegativeScenarioBInwork(){
+
+        // Generate token and set up the host
         Token token = new Token("sap");
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
+
+        // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
 
+        // Response and assertion
         for(int i=0; i<statusAfter.length; i++) {
             String requestBody = "{ \"state\": \"" + statusAfter[i] + "\" }";
             request.body(requestBody);
@@ -43,5 +48,7 @@ public class TestC127322001UpdateFormRouteStatusNegativeScenarioBInwork {
             Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting " + statusBefore + " to " + statusAfter[i] + ".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
         }
+
     }
+
 }
