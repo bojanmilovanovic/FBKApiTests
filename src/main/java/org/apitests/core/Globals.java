@@ -1,8 +1,12 @@
 package org.apitests.core;
 
+import org.testng.Reporter;
+import org.testng.TestListenerAdapter;
+import org.testng.annotations.BeforeSuite;
+
 import java.util.ResourceBundle;
 
-public class Globals {
+public class Globals  extends TestListenerAdapter {
 
     public static ResourceBundle resourceBundle = ResourceBundle
             .getBundle("org.apitests." + ResourceBundle.getBundle("org.apitests.config").getString("environment"));
@@ -29,5 +33,30 @@ public class Globals {
     public static String TOKEN_VALUE = "";
     public static String TOKEN_TYPE = "";
 
+    @BeforeSuite
+    public static void setupVariables() {
+        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        try {
+            int check = Integer.parseInt(System.getenv("useExistingSuite"));
+            resourceBundle = ResourceBundle.getBundle("org.apitests." + System.getenv("environment"));
+        } catch (NumberFormatException e) {
+            System.out.println("Environment variables read from environment setup in Jenkins!");
+        } finally {
+            PROTOCOL = resourceBundle.getString("protocol");
+            HOST = resourceBundle.getString("host");
+            TENANT = resourceBundle.getString("tenant");
+            LOGIN_NAME = resourceBundle.getString("loginName");
+            PARTNER_ID = resourceBundle.getString("partnerId");
+            FUNDING_ID = resourceBundle.getString("fundingId");
+            FUNDING_MONITORING_ID = resourceBundle.getString("fundingMonitoringId");
+            FUNDING_EXTERNAL_ID = resourceBundle.getString("fundingExternalId");
+            TASK_ID = resourceBundle.getString("taskId");
+            ASSIGNEE_ID = resourceBundle.getString("assigneeId");
+            USER_UUID = resourceBundle.getString("userUUID");
+            FORMROUTE_ID = resourceBundle.getString("formrouteId");
+            SID = resourceBundle.getString("sid");
+            TASK_FORMROUTE_ID = resourceBundle.getString("taskFormRouteId");
+        }
 
+    }
 }
