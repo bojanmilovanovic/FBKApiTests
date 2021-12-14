@@ -12,8 +12,12 @@ import java.util.*;
 
 public class TestRailRunner extends TestListenerAdapter {
 
-    boolean CREATE_TEST_RUN = Boolean.parseBoolean(ResourceBundle.getBundle("org.apitests.config").getString("createTestRailRun"));
-    String ENVIRONMENT = ResourceBundle.getBundle("org.apitests.config").getString("environment").toUpperCase(Locale.ROOT);
+    // Needed variables for Jenkins. Initially they are set up for local execution and then determined if this is a Jenkins run or local run.
+    boolean JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(ResourceBundle.getBundle("org.apitests.config").getString("createTestRailRun"));
+    String JENKINS_ENVIRONMENT = ResourceBundle.getBundle("org.apitests.config").getString("environment").toUpperCase(Locale.ROOT);
+    int JENKINS_USE_EXISTING_SUITE = 0;
+
+    // Needed variables for TestRail
     long TEST_RUN_ID = 0;
     APIClient client = new APIClient("https://testrail.ebs.crealogix.net");
     String username = "eb-selenium@crealogix.com";
@@ -23,15 +27,22 @@ public class TestRailRunner extends TestListenerAdapter {
     int TEST_CASE_SKIPPED_STATUS = 4;
     String projectID = "14";
     String suiteID = "24543";
-    boolean JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createTestRailRun"));
-    int JENKINS_USE_EXISTING_SUITE = 0;
 
 
     @Override
     public void onFinish(ITestContext context) {
+
+        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        try {
+            JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
+            JENKINS_ENVIRONMENT = System.getenv("environment");
+            JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createNewTestRailRun"));
+        }catch (NumberFormatException e){
+            Reporter.log("Local run in progress");
+        }
+
         // Use an existing TestRail test run
-        JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
-        if(JENKINS_USE_EXISTING_SUITE > 0 && !CREATE_TEST_RUN && !JENKINS_CREATE_TEST_RUN){
+        if(JENKINS_USE_EXISTING_SUITE > 0 && !JENKINS_CREATE_TEST_RUN){
             TEST_RUN_ID = JENKINS_USE_EXISTING_SUITE;
             client.setUser(username);
             client.setPassword(password);
@@ -81,7 +92,7 @@ public class TestRailRunner extends TestListenerAdapter {
         }
 
         // Create a new run for TestRail and populate results accordingly
-        if (CREATE_TEST_RUN || JENKINS_CREATE_TEST_RUN) {
+        if (JENKINS_CREATE_TEST_RUN) {
             //Create a test run
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
             Date date = new Date();
@@ -109,9 +120,9 @@ public class TestRailRunner extends TestListenerAdapter {
                 arrCaseIds.add(Integer.valueOf(itr.getName().substring(5, 14)));
             }
             if(System.getenv("modulesToRun")==null || System.getenv("modulesToRun").isEmpty()) {
-                dataTestRun.put("name", ENVIRONMENT + " API TestRun - " + formatter.format(date));
+                dataTestRun.put("name", JENKINS_ENVIRONMENT + " API TestRun - " + formatter.format(date));
             }else{
-                dataTestRun.put("name", ENVIRONMENT + " API "+System.getenv("modulesToRun").toUpperCase(Locale.ROOT)+" TestRun - " + formatter.format(date));
+                dataTestRun.put("name", JENKINS_ENVIRONMENT + " API "+System.getenv("modulesToRun").toUpperCase(Locale.ROOT)+" TestRun - " + formatter.format(date));
             }
             dataTestRun.put("case_ids", arrCaseIds);
             dataTestRun.put("description", "Description: Test run of automated API test for FBK");
