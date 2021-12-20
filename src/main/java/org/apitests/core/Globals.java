@@ -38,6 +38,7 @@ public class Globals extends TestListenerAdapter {
         Reporter.log("Global variables are being instantiated", true);
         ResourceBundle resourceBundleJ = ResourceBundle
                 .getBundle("org.apitests." + System.getenv("environment"));
+        Reporter.log("Global variables are being instantiated for environment"+System.getenv("environment"), true);
         PROTOCOL = resourceBundleJ.getString("protocol");
         HOST = resourceBundleJ.getString("host");
         TENANT = resourceBundleJ.getString("tenant");

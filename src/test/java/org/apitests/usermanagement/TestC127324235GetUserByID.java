@@ -7,6 +7,7 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -20,9 +21,10 @@ public class TestC127324235GetUserByID {
         testC127321898GetAllUsersByLoginName.testC127321898GetAllUsersByLoginName();
     }
 
-    @Test(groups = {"usermanagement", "tp1"}, priority = 10)
+    @Test(groups = {"usermanagement", "tp1"})
     public void testC127324235GetUserByID() {
 
+        Reporter.log("Loaded environment is "+Globals.HOST,true);
         // Generate token and set up the host
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
