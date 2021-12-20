@@ -7,15 +7,14 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
-import org.testng.Reporter;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners({TestRailRunner.class})
 public class TestC127324235GetUserByID {
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void testC127324235GetUserByIDPrecondition() {
         TestC127321898GetAllUsersByLoginName testC127321898GetAllUsersByLoginName = new TestC127321898GetAllUsersByLoginName();
         testC127321898GetAllUsersByLoginName.testC127321898GetAllUsersByLoginName();

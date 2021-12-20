@@ -32,7 +32,6 @@ public class TestC127324221SearchFundingTransactions {
 
         // Response and assertion
         Response response = request.post("/fundings/transactions/"+Globals.FUNDING_MONITORING_ID+"/search");
-        response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

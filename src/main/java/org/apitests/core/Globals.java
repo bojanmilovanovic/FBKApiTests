@@ -2,7 +2,6 @@ package org.apitests.core;
 
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.ResourceBundle;
 
@@ -33,9 +32,8 @@ public class Globals extends TestListenerAdapter {
     public static String TOKEN_VALUE = "";
     public static String TOKEN_TYPE = "";
 
-    //Used to setup the globals according to environment selected in Jenkins
+    //Used to set up the globals according to environment selected in Jenkins
     public Globals(){
-        Reporter.log("Global variables are being instantiated", true);
         ResourceBundle resourceBundleJ = ResourceBundle
                 .getBundle("org.apitests." + System.getenv("environment"));
         Reporter.log("Global variables are being instantiated for environment "+System.getenv("environment"), true);
