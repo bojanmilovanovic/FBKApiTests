@@ -28,11 +28,24 @@ public class TestRailRunner extends TestListenerAdapter {
     String projectID = "14";
     String suiteID = "24543";
 
+    @Override
+    public void onStart(ITestContext context){
+
+//      If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        try {
+            JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
+            Reporter.log("Load configuration variables");
+            Globals globals = new Globals();
+        }catch (NumberFormatException e){
+            Reporter.log("Local run in progress");
+        }
+
+    }
 
     @Override
     public void onFinish(ITestContext context) {
 
-        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
+//      If exception occurs then this is a local run, if not continue to setup Jenkins variables
         try {
             JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
             JENKINS_ENVIRONMENT = System.getenv("environment");

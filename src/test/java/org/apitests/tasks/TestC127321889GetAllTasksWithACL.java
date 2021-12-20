@@ -36,8 +36,8 @@ public class TestC127321889GetAllTasksWithACL {
         Response response = request.post("/tasks/search?calcPermissions=true");
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
-        File schema = new File("src/test/java/org/apitests/tasks/schema/GetAllTasksWithACLSchema.json");
-        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
+//        File schema = new File("src/test/java/org/apitests/tasks/schema/GetAllTasksWithACLSchema.json");
+//        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 
     }
 

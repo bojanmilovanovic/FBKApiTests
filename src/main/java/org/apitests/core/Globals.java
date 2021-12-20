@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeSuite;
 
 import java.util.ResourceBundle;
 
-public class Globals  extends TestListenerAdapter {
+public class Globals extends TestListenerAdapter {
 
     public static ResourceBundle resourceBundle = ResourceBundle
             .getBundle("org.apitests." + ResourceBundle.getBundle("org.apitests.config").getString("environment"));
@@ -33,30 +33,27 @@ public class Globals  extends TestListenerAdapter {
     public static String TOKEN_VALUE = "";
     public static String TOKEN_TYPE = "";
 
-    @BeforeSuite
-    public static void setupVariables() {
-        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
-        try {
-            int check = Integer.parseInt(System.getenv("useExistingSuite"));
-            resourceBundle = ResourceBundle.getBundle("org.apitests." + System.getenv("environment"));
-        } catch (NumberFormatException e) {
-            System.out.println("Environment variables read from environment setup in Jenkins!");
-        } finally {
-            PROTOCOL = resourceBundle.getString("protocol");
-            HOST = resourceBundle.getString("host");
-            TENANT = resourceBundle.getString("tenant");
-            LOGIN_NAME = resourceBundle.getString("loginName");
-            PARTNER_ID = resourceBundle.getString("partnerId");
-            FUNDING_ID = resourceBundle.getString("fundingId");
-            FUNDING_MONITORING_ID = resourceBundle.getString("fundingMonitoringId");
-            FUNDING_EXTERNAL_ID = resourceBundle.getString("fundingExternalId");
-            TASK_ID = resourceBundle.getString("taskId");
-            ASSIGNEE_ID = resourceBundle.getString("assigneeId");
-            USER_UUID = resourceBundle.getString("userUUID");
-            FORMROUTE_ID = resourceBundle.getString("formrouteId");
-            SID = resourceBundle.getString("sid");
-            TASK_FORMROUTE_ID = resourceBundle.getString("taskFormRouteId");
-        }
-
+    //Used to setup the globals according to environment selected in Jenkins
+    public Globals(){
+        Reporter.log("Global variables are being instantiated");
+        ResourceBundle resourceBundleJ = ResourceBundle
+                .getBundle("org.apitests." + System.getenv("environment"));
+        PROTOCOL = resourceBundleJ.getString("protocol");
+        HOST = resourceBundleJ.getString("host");
+        TENANT = resourceBundleJ.getString("tenant");
+        LOGIN_NAME = resourceBundleJ.getString("loginName");
+        PARTNER_ID = resourceBundleJ.getString("partnerId");
+        FUNDING_ID = resourceBundleJ.getString("fundingId");
+        FUNDING_MONITORING_ID = resourceBundleJ.getString("fundingMonitoringId");
+        FUNDING_EXTERNAL_ID = resourceBundleJ.getString("fundingExternalId");
+        TASK_ID = resourceBundleJ.getString("taskId");
+        ASSIGNEE_ID = resourceBundleJ.getString("assigneeId");
+        USER_UUID = resourceBundleJ.getString("userUUID");
+        FORMROUTE_ID = resourceBundleJ.getString("formrouteId");
+        SID = resourceBundleJ.getString("sid");
+        TASK_FORMROUTE_ID = resourceBundleJ.getString("taskFormRouteId");
     }
+
+
+
 }
