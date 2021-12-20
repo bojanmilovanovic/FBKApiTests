@@ -34,10 +34,10 @@ public class TestRailRunner extends TestListenerAdapter {
 //      If exception occurs then this is a local run, if not continue to setup Jenkins variables
         try {
             JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
-            Reporter.log("Load configuration variables");
+            Reporter.log("Load configuration variables", true);
             Globals globals = new Globals();
         }catch (NumberFormatException e){
-            Reporter.log("Local run in progress");
+            Reporter.log("Local run in progress", true);
         }
 
     }
@@ -51,7 +51,7 @@ public class TestRailRunner extends TestListenerAdapter {
             JENKINS_ENVIRONMENT = System.getenv("environment");
             JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createNewTestRailRun"));
         }catch (NumberFormatException e){
-            Reporter.log("Local run in progress");
+            Reporter.log("Local run in progress", true);
         }
 
         // Use an existing TestRail test run

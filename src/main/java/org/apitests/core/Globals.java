@@ -35,7 +35,7 @@ public class Globals extends TestListenerAdapter {
 
     //Used to setup the globals according to environment selected in Jenkins
     public Globals(){
-        Reporter.log("Global variables are being instantiated");
+        Reporter.log("Global variables are being instantiated", true);
         ResourceBundle resourceBundleJ = ResourceBundle
                 .getBundle("org.apitests." + System.getenv("environment"));
         PROTOCOL = resourceBundleJ.getString("protocol");
