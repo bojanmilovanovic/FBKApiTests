@@ -21,6 +21,7 @@ public class TestC127322922UpdateFundingStatusAacceptedAfinished {
 
     @BeforeMethod(alwaysRun = true)
     public void testC127322922UpdateFundingStatusAacceptedAfinishedPrecondition() throws Exception {
+        Reporter.log("Host for this test is "+Globals.HOST, true);
         dbHelper.openDBConnectionFundings();
         dbHelper.runUpdate("update fbk_fundings set funding_status = '"+statusBefore+"' where external_id = '"+ Globals.FUNDING_ID+"'");
         dbHelper.closeConnection();
