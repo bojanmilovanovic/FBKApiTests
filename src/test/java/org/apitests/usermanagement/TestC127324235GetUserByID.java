@@ -24,7 +24,6 @@ public class TestC127324235GetUserByID {
     @Test(groups = {"usermanagement", "tp1"})
     public void testC127324235GetUserByID() {
 
-        Reporter.log("Loaded environment is "+Globals.HOST,true);
         // Generate token and set up the host
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;

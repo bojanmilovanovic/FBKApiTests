@@ -6,18 +6,18 @@ import java.sql.*;
 public class DBHelper {
 
     private Connection connection;
-    private static final String URL = "jdbc:oracle:thin:@c20-k8s-ora-01.crealogix.net:1521:"+Globals.SID;
+    private static final String URL = "jdbc:oracle:thin:@c20-k8s-ora-01.crealogix.net:1521:";
 
     public void openDBConnectionFundings() throws SQLException, ClassNotFoundException {
         String driverName = "oracle.jdbc.driver.OracleDriver";
         Class.forName(driverName);
-        connection = DriverManager.getConnection(URL, "funding", "funding");
+        connection = DriverManager.getConnection(URL+Globals.SID, "funding", "funding");
     }
 
     public void openDBConnectionTasks() throws SQLException, ClassNotFoundException {
         String driverName = "oracle.jdbc.driver.OracleDriver";
         Class.forName(driverName);
-        connection = DriverManager.getConnection(URL, "tasks", "tasks");
+        connection = DriverManager.getConnection(URL+Globals.SID, "tasks", "tasks");
     }
 
     public ResultSet runQuery(String query) {
