@@ -17,7 +17,8 @@ import java.io.IOException;
 @Listeners({TestRailRunner.class})
 public class TestC127324237SearchForUsers {
 
-    @Test(groups = {"usermanagement", "tp1"})
+    //Test disabled due to gloo config with admin-api
+    @Test(groups = {"usermanagement", "tp1"}, enabled = false)
     public void testC127324237SearchForUsers() throws IOException {
 
         // Generate token and set up the host

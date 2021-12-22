@@ -14,7 +14,8 @@ import org.testng.annotations.Test;
 @Listeners({TestRailRunner.class})
 public class TestC127321888GetAllTasksAdminApi {
 
-    @Test(groups = {"tasks", "tp1"})
+    //Test disabled due to gloo config with admin-api
+    @Test(groups = {"tasks", "tp1"}, enabled = false)
     public void testC127321888GetAllTasksAdminApi() {
 
         // Generate token and set up the host

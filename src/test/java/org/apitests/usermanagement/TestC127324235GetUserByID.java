@@ -20,7 +20,8 @@ public class TestC127324235GetUserByID {
         testC127321898GetAllUsersByLoginName.testC127321898GetAllUsersByLoginName();
     }
 
-    @Test(groups = {"usermanagement", "tp1"})
+    //Test disabled due to gloo config with admin-api
+    @Test(groups = {"usermanagement", "tp1"}, enabled = false)
     public void testC127324235GetUserByID() {
 
         // Generate token and set up the host

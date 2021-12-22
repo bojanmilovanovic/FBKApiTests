@@ -13,7 +13,8 @@ import org.testng.annotations.Test;
 @Listeners({TestRailRunner.class})
 public class TestC127321899GetAllUsersByPartnerID {
 
-    @Test(groups = {"usermanagement", "tp1"})
+    //Test disabled due to gloo config with admin-api
+    @Test(groups = {"usermanagement", "tp1"}, enabled = false)
     public void testC127321899GetAllUsersByPartnerID() {
 
         // Generate token and set up the host
