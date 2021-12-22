@@ -32,7 +32,7 @@ public class TestC129277578CompleteTask {
 
         // Generate token and set up the host
         Token token = new Token("sap");
-        RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/admin-api/v1/"+Globals.TENANT;
+        RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
         RequestSpecification request = RestAssured.given();
