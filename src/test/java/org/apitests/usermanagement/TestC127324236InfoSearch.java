@@ -29,7 +29,6 @@ public class TestC127324236InfoSearch {
 
         // Response and assertion
         Response response = request.post("/info/search");
-        response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
 

@@ -2,21 +2,21 @@ package org.apitests.tasks;
 
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.module.jsv.JsonSchemaValidatorSettings;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @Listeners({TestRailRunner.class})
 public class TestC127321890GetTaskById {
@@ -42,7 +42,7 @@ public class TestC127321890GetTaskById {
 
         // Response and assertion
         Response response = request.get("/tasks/"+Globals.TASK_ID);
-        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusCode(), 200, "Status is not 200");
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
         Assert.assertFalse(response.jsonPath().getString("task.subject").isEmpty(), "Task does not have a subject field");
         File schema = new File("src/test/java/org/apitests/tasks/schema/GetTaskByIdSchema.json");
