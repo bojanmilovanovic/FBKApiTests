@@ -3,6 +3,7 @@ package org.apitests.fundings;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.http.HttpStatus;
 import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
@@ -19,7 +20,7 @@ public class TestC127324221SearchFundingTransactions {
     public void testC127324221SearchFundingTransactions(){
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up

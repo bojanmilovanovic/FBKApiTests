@@ -31,11 +31,28 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onStart(ITestContext context){
 
-//      If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        // Set up environment files and global variables
         try {
             JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
             Reporter.log("Load configuration variables", true);
-            Globals globals = new Globals();
+            ResourceBundle resourceBundleJ = ResourceBundle
+                    .getBundle("org.apitests." + System.getenv("environment"));
+            Reporter.log("Global variables are being instantiated for environment "+System.getenv("environment"), true);
+            Globals.PROTOCOL = resourceBundleJ.getString("protocol");
+            Globals.HOST = resourceBundleJ.getString("host");
+            Globals.TENANT = resourceBundleJ.getString("tenant");
+            Globals.LOGIN_NAME = resourceBundleJ.getString("loginName");
+            Globals.PARTNER_ID = resourceBundleJ.getString("partnerId");
+            Globals.FUNDING_ID = resourceBundleJ.getString("fundingId");
+            Globals.FUNDING_MONITORING_ID = resourceBundleJ.getString("fundingMonitoringId");
+            Globals.FUNDING_EXTERNAL_ID = resourceBundleJ.getString("fundingExternalId");
+            Globals.TASK_ID = resourceBundleJ.getString("taskId");
+            Globals.ASSIGNEE_ID = resourceBundleJ.getString("assigneeId");
+            Globals.USER_UUID = resourceBundleJ.getString("userUUID");
+            Globals.FORMROUTE_ID = resourceBundleJ.getString("formrouteId");
+            Globals.SID = resourceBundleJ.getString("sid");
+            Globals.TASK_FORMROUTE_ID = resourceBundleJ.getString("taskFormRouteId");
         }catch (NumberFormatException e){
             Reporter.log("Local run in progress", true);
         }
@@ -45,7 +62,7 @@ public class TestRailRunner extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
 
-//      If exception occurs then this is a local run, if not continue to setup Jenkins variables
+        // If exception occurs then this is a local run, if not continue to setup Jenkins variables
         try {
             JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
             JENKINS_ENVIRONMENT = System.getenv("environment");
@@ -61,9 +78,7 @@ public class TestRailRunner extends TestListenerAdapter {
             client.setPassword(password);
             //Update test run with results
             //Iterator for passed tests
-            Iterator<ITestResult> itrPassed = context.getPassedTests().getAllResults().iterator();
-            while(itrPassed.hasNext()) {
-                ITestResult itr = itrPassed.next();
+            for (ITestResult itr : context.getPassedTests().getAllResults()) {
                 HashMap<Object, Object> dataTestResults = new HashMap<>();
                 dataTestResults.put("status_id", TEST_CASE_PASSED_STATUS);
                 dataTestResults.put("comment", "Test passed");
@@ -75,9 +90,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 Reporter.log("Test case C" + itr.getName().substring(5, 14) + " passed.", true);
             }
             //Iterator for skipped tests
-            Iterator<ITestResult> itrSkipped = context.getSkippedTests().getAllResults().iterator();
-            while(itrSkipped.hasNext()) {
-                ITestResult itr = itrSkipped.next();
+            for (ITestResult itr : context.getSkippedTests().getAllResults()) {
                 HashMap<Object, Object> dataTestResults = new HashMap<>();
                 dataTestResults.put("status_id", TEST_CASE_SKIPPED_STATUS);
                 dataTestResults.put("comment", "Skip reason: " + itr.getThrowable());
@@ -89,9 +102,7 @@ public class TestRailRunner extends TestListenerAdapter {
                 Reporter.log("Test case C" + itr.getName().substring(5, 14) + " skipped.", true);
             }
             //Iterator for failed tests
-            Iterator<ITestResult> itrFailed = context.getFailedTests().getAllResults().iterator();
-            while(itrFailed.hasNext()) {
-                ITestResult itr = itrFailed.next();
+            for (ITestResult itr : context.getFailedTests().getAllResults()) {
                 HashMap<Object, Object> dataTestResults = new HashMap<>();
                 dataTestResults.put("status_id", TEST_CASE_FAILED_STATUS);
                 dataTestResults.put("comment", "Fail reason: " + itr.getThrowable());

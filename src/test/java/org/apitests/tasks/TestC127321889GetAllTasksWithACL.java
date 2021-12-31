@@ -21,7 +21,7 @@ public class TestC127321889GetAllTasksWithACL {
     public void testC127321889GetAllTasksWithACL() {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
@@ -36,8 +36,8 @@ public class TestC127321889GetAllTasksWithACL {
         Response response = request.post("/tasks/search?calcPermissions=true");
         Assert.assertEquals(response.getStatusCode(), 200);
         Assert.assertTrue(response.jsonPath().getBoolean("_status"));
-//        File schema = new File("src/test/java/org/apitests/tasks/schema/GetAllTasksWithACLSchema.json");
-//        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
+        File schema = new File("src/test/java/org/apitests/tasks/schema/GetAllTasksWithACLSchema.json");
+        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 
     }
 

@@ -24,7 +24,7 @@ public class TestC127324228GetDynamicFormFormatted {
     public void testC127324228GetDynamicFormFormatted() {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;
 

@@ -32,7 +32,7 @@ public class TestC127324218UpdateFundingStatusNegativeScenariosBPartlypaid {
     public void testC127324218UpdateFundingStatusNegativeScenariosBPartlypaid(){
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
@@ -42,11 +42,11 @@ public class TestC127324218UpdateFundingStatusNegativeScenariosBPartlypaid {
         request.header("Content-Type", "application/json");
 
         // Response and assertion
-        for(int i=0; i<statusAfterB_partlypaid.length; i++) {
-            String requestBody = "{ \"state\": \"" + statusAfterB_partlypaid[i] + "\" }";
+        for (String s : statusAfterB_partlypaid) {
+            String requestBody = "{ \"state\": \"" + s + "\" }";
             request.body(requestBody);
             Response response = request.put("/fundings/" + Globals.FUNDING_ID + "/state");
-            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting "+statusBefore+" to "+statusAfterB_partlypaid[i]+".");
+            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting " + statusBefore + " to " + s + ".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
         }
 
