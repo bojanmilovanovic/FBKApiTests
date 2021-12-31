@@ -24,7 +24,7 @@ public class TestC127324227GetDynamicFormACL {
     public void testC127324227GetDynamicFormACL() {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         String dynamicFormId = Globals.DYNAMIC_FORM_ID;
         String permissions = "[[DELETE, READ, WRITE, ACL]]";
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/dynamicform/api/v1/"+Globals.TENANT;

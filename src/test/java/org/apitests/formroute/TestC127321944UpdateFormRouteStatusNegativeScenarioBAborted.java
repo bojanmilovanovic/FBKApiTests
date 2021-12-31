@@ -31,7 +31,7 @@ public class TestC127321944UpdateFormRouteStatusNegativeScenarioBAborted {
     public void testC127321944UpdateFormRouteStatusNegativeScenarioBAborted(){
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
@@ -41,11 +41,11 @@ public class TestC127321944UpdateFormRouteStatusNegativeScenarioBAborted {
         request.header("Content-Type", "application/json");
 
         // Response and assertion
-        for(int i=0; i<statusAfter.length; i++) {
-            String requestBody = "{ \"state\": \"" + statusAfter[i] + "\" }";
+        for (String s : statusAfter) {
+            String requestBody = "{ \"state\": \"" + s + "\" }";
             request.body(requestBody);
             Response response = request.put("/formroute/" + Globals.FORMROUTE_ID + "/state");
-            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting " + statusBefore + " to " + statusAfter[i] + ".");
+            Assert.assertEquals(response.getStatusCode(), 400, "Status is not 400 for converting " + statusBefore + " to " + s + ".");
             Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status is true");
         }
 

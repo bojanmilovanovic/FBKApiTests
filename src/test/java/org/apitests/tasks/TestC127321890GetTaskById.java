@@ -31,7 +31,7 @@ public class TestC127321890GetTaskById {
     public void testC127321890GetTaskById() {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/tasks/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up

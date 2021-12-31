@@ -31,7 +31,7 @@ public class TestC127321915UpdateFormRouteStatusAAcceptedAError {
     public void testC127321915UpdateFormRouteStatusAAcceptedAError(){
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up

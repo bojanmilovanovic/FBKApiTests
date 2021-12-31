@@ -22,7 +22,7 @@ public class TestC127324237SearchForUsers {
     public void testC127324237SearchForUsers() throws IOException {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/admin-api/v1/"+Globals.TENANT;
 
         // Authentication and body set up

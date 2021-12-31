@@ -10,7 +10,7 @@ public class Globals extends TestListenerAdapter {
     public static ResourceBundle resourceBundle = ResourceBundle
             .getBundle("org.apitests." + ResourceBundle.getBundle("org.apitests.config").getString("environment"));
 
-    //Global environment variables read from the property file
+    //Global environment variables read from the property file initially for local run
     public static String PROTOCOL = resourceBundle.getString("protocol");
     public static String HOST = resourceBundle.getString("host");
     public static String TENANT = resourceBundle.getString("tenant");
@@ -31,28 +31,5 @@ public class Globals extends TestListenerAdapter {
     public static String DYNAMIC_FORM_ID = "";
     public static String TOKEN_VALUE = "";
     public static String TOKEN_TYPE = "";
-
-    //Used to set up the globals according to environment selected in Jenkins
-    public Globals(){
-        ResourceBundle resourceBundleJ = ResourceBundle
-                .getBundle("org.apitests." + System.getenv("environment"));
-        Reporter.log("Global variables are being instantiated for environment "+System.getenv("environment"), true);
-        PROTOCOL = resourceBundleJ.getString("protocol");
-        HOST = resourceBundleJ.getString("host");
-        TENANT = resourceBundleJ.getString("tenant");
-        LOGIN_NAME = resourceBundleJ.getString("loginName");
-        PARTNER_ID = resourceBundleJ.getString("partnerId");
-        FUNDING_ID = resourceBundleJ.getString("fundingId");
-        FUNDING_MONITORING_ID = resourceBundleJ.getString("fundingMonitoringId");
-        FUNDING_EXTERNAL_ID = resourceBundleJ.getString("fundingExternalId");
-        TASK_ID = resourceBundleJ.getString("taskId");
-        ASSIGNEE_ID = resourceBundleJ.getString("assigneeId");
-        USER_UUID = resourceBundleJ.getString("userUUID");
-        FORMROUTE_ID = resourceBundleJ.getString("formrouteId");
-        SID = resourceBundleJ.getString("sid");
-        TASK_FORMROUTE_ID = resourceBundleJ.getString("taskFormRouteId");
-    }
-
-
 
 }

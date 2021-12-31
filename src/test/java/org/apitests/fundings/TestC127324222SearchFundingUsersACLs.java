@@ -21,7 +21,7 @@ public class TestC127324222SearchFundingUsersACLs {
     public void testC127324222SearchFundingUsersACLs() throws IOException {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up

@@ -6,9 +6,10 @@ import io.restassured.response.Response;
 import org.apitests.core.Globals;
 import org.testng.Reporter;
 
-//TO DO: reimplement the two methods into one. Currently the token with tu_server2server is required for tasks.
+
 public class Token {
 
+    // If no parameter to the constructor is added, the default tu_sap2portal token is generated
     public Token() {
         String body = "grant_type=client_credentials";
         PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();
@@ -21,6 +22,7 @@ public class Token {
         Globals.TOKEN_VALUE = response.path("access_token");
     }
 
+    // Provide a parameter to the constructor so a specific token is generated
     public Token(String tokenName) {
         String body = "grant_type=client_credentials";
         PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();

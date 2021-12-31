@@ -17,7 +17,7 @@ public class TestC127324236InfoSearch {
     public void testC127324236InfoSearch() {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/abxusermanagement/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
