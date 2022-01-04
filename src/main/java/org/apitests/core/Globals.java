@@ -1,6 +1,5 @@
 package org.apitests.core;
 
-import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 
 import java.util.ResourceBundle;

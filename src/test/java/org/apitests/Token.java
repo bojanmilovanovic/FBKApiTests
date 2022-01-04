@@ -16,10 +16,12 @@ public class Token {
         authScheme.setUserName("tu_sap2portal");
         authScheme.setPassword("secret");
         RestAssured.authentication = authScheme;
-
-        Response response = RestAssured.given().with().header("Content-Type", "application/x-www-form-urlencoded").body(body).post(Globals.PROTOCOL + "://" + Globals.HOST + "/authserver/oauth/" + Globals.TENANT + "/oauth/token");
-        Globals.TOKEN_TYPE = response.path("token_type");
-        Globals.TOKEN_VALUE = response.path("access_token");
+        if(Globals.TOKEN_VALUE.isEmpty()) {
+            Reporter.log("Generating a sap token", true);
+            Response response = RestAssured.given().with().header("Content-Type", "application/x-www-form-urlencoded").body(body).post(Globals.PROTOCOL + "://" + Globals.HOST + "/authserver/oauth/" + Globals.TENANT + "/oauth/token");
+            Globals.TOKEN_TYPE = response.path("token_type");
+            Globals.TOKEN_VALUE = response.path("access_token");
+        }
     }
 
     // Provide a parameter to the constructor so a specific token is generated
