@@ -22,7 +22,7 @@ public class TestC129430161CreateATaskWithoutAttachments {
     public void testC129430161CreateATaskWithoutAttachments() throws IOException {
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
         String applicationNo = Globals.FUNDING_ID;
         File file = new File("src/test/java/org/apitests/tasks/body/TestCreateATaskBody.json");

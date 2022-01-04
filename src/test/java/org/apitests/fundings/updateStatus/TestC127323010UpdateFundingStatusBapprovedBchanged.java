@@ -29,7 +29,7 @@ public class TestC127323010UpdateFundingStatusBapprovedBchanged {
     public void testC127323010UpdateFundingStatusBapprovedBchanged(){
 
         // Generate token and set up the host
-        Token token = new Token("sap");
+        Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
