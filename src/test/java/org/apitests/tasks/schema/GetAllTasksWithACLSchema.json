@@ -117,13 +117,11 @@
             }
           },
           "required": [
-            "ownerId",
             "ownerEnterpriseCustomerId",
             "partnerNo",
             "customerNo",
             "relatedType",
             "subject",
-            "assigneeId",
             "category",
             "type",
             "executionUrl",
@@ -131,9 +129,7 @@
             "relatedId",
             "content",
             "deadline",
-            "resubmissionDate",
             "id",
-            "assigneeName",
             "taskStatus",
             "permissionInformation",
             "auditInfo"
@@ -375,13 +371,11 @@
             }
           },
           "required": [
-            "ownerId",
             "ownerEnterpriseCustomerId",
             "partnerNo",
             "customerNo",
             "relatedType",
             "subject",
-            "assigneeId",
             "category",
             "type",
             "executionUrl",
@@ -391,7 +385,6 @@
             "deadline",
             "resubmissionDate",
             "id",
-            "assigneeName",
             "taskStatus",
             "permissionInformation",
             "auditInfo"
