@@ -8,7 +8,6 @@ import org.apitests.core.DBHelper;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.annotations.*;
 
 

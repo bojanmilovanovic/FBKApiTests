@@ -18,10 +18,10 @@ public class TimeHelper {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
-        if(cal.get(cal.DAY_OF_WEEK) == Calendar.SATURDAY) {
+        if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
             cal.add(Calendar.DATE, 2);
         }
-        if(cal.get(cal.DAY_OF_WEEK) == Calendar.SUNDAY) {
+        if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             cal.add(Calendar.DATE, 1);
         }
         DateTimeFormatter f = DateTimeFormatter.ofPattern("E MMM d HH:mm:ss z uuuu");

@@ -21,7 +21,7 @@ public class DBHelper {
     }
 
     public ResultSet runQuery(String query) {
-        Statement stmt = null;
+        Statement stmt;
         ResultSet rset = null;
         try {
             stmt = connection.createStatement();
@@ -33,7 +33,7 @@ public class DBHelper {
     }
 
     public int runUpdate(String update) throws Exception {
-        Statement stmt = null;
+        Statement stmt;
         int num = 0;
         try {
             stmt = connection.createStatement();

@@ -12,11 +12,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static org.hamcrest.Matchers.*;
 import java.io.File;
 import java.io.IOException;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 
 @Listeners({TestRailRunner.class})
 public class TestC127321890GetTaskById {
