@@ -53,6 +53,7 @@ public class TestRailRunner extends TestListenerAdapter {
             Globals.FORMROUTE_ID = resourceBundleJ.getString("formrouteId");
             Globals.SID = resourceBundleJ.getString("sid");
             Globals.TASK_FORMROUTE_ID = resourceBundleJ.getString("taskFormRouteId");
+            Reporter.log("Jenkins run in progress", true);
         }catch (NumberFormatException e){
             Reporter.log("Local run in progress", true);
         }
@@ -67,9 +68,8 @@ public class TestRailRunner extends TestListenerAdapter {
             JENKINS_USE_EXISTING_SUITE = Integer.parseInt(System.getenv("useExistingSuite"));
             JENKINS_ENVIRONMENT = System.getenv("environment");
             JENKINS_CREATE_TEST_RUN = Boolean.parseBoolean(System.getenv("createNewTestRailRun"));
-            Reporter.log("Jenkins run in progress", true);
         }catch (NumberFormatException e){
-            Reporter.log("Local run in progress", true);
+            // Do nothing
         }finally {
             // TestRail suite creation/update
             if(JENKINS_USE_EXISTING_SUITE>0 || JENKINS_CREATE_TEST_RUN){
