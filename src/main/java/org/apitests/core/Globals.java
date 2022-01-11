@@ -26,9 +26,10 @@ public class Globals extends TestListenerAdapter {
     public static String TASK_FORMROUTE_ID = resourceBundle.getString("taskFormRouteId");
 
     //Local variables assigned through tests
-    public static String USER_ID = "";
-    public static String DYNAMIC_FORM_ID = "";
     public static String TOKEN_VALUE = "";
     public static String TOKEN_TYPE = "";
+    public static String USER_ID = "";
+    public static String DYNAMIC_FORM_ID = "";
+    public static String DOWNLOAD_DOCUMENT = "";
 
 }
