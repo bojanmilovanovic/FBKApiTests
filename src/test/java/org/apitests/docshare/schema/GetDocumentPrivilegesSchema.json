@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "_timestamp": {
+      "type": "string"
+    },
+    "accessControlEntries": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "permission": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "delete": {
+                  "type": "boolean"
+                },
+                "chmod": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "delete",
+                "chmod"
+              ]
+            }
+          },
+          "required": [
+            "role",
+            "permission"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "permission": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "delete": {
+                  "type": "boolean"
+                },
+                "chmod": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "delete",
+                "chmod"
+              ]
+            }
+          },
+          "required": [
+            "role",
+            "permission"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string"
+            },
+            "permission": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "delete": {
+                  "type": "boolean"
+                },
+                "chmod": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "delete",
+                "chmod"
+              ]
+            }
+          },
+          "required": [
+            "role",
+            "permission"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "_status",
+    "_timestamp",
+    "accessControlEntries"
+  ]
+}

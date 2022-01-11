@@ -31,5 +31,6 @@ public class Globals extends TestListenerAdapter {
     public static String USER_ID = "";
     public static String DYNAMIC_FORM_ID = "";
     public static String DOWNLOAD_DOCUMENT = "";
+    public static String FOLDER_NAME = "";
 
 }
