@@ -39,7 +39,7 @@ public class TestC136343866UploadDocumentToFunding404 {
         Response response = request.post("/documents");
         Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of _status flag is not false");
-        Assert.assertTrue(response.jsonPath().getString("_messages.text").contains("Folder on path aaa does not exist or is not accessible."), "Message text is not correct");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Folder on path aaa does not exist or is not accessible.", "Message text is not correct");
 
     }
 

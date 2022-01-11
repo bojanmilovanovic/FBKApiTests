@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 
 
 @Listeners({TestRailRunner.class})
-public class TestC136343847DownloadDocument404 {
+public class TestC136343853GetDocumentPrivileges404 {
 
     @Test(groups = {"docshare", "tp1"})
-    public void testC136343847DownloadDocument404() {
+    public void testC136343853GetDocumentPrivileges404() {
 
         // Generate token and set up the host
         Token token = new Token();
@@ -27,10 +27,10 @@ public class TestC136343847DownloadDocument404 {
         request.header("Accept", "application/json");
 
         // Response and assertion
-        Response response = request.get("/documents/download?path=/aaa");
+        Response response = request.get("/documents/privileges?path=/aaa");
         Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404");
-        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status flag is true");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document on path /aaa does not exist or is not accessible.", "Message in response is not correct");
+        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of _status flag is not false");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document/Folder on path /aaa does not exist or is not accessible.", "Response message text is not correct");
 
     }
 

@@ -30,7 +30,7 @@ public class TestC136343851GetDocumentMetadata404 {
         Response response = request.get("/documents?path=/aaa");
         Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of _status flag is not false");
-        Assert.assertTrue(response.jsonPath().getString("_messages.text").contains("Document/Folder on path /aaa does not exist or is not accessible."), "Message text in the response in not correct");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document/Folder on path /aaa does not exist or is not accessible.", "Message text in the response in not correct");
 
     }
 

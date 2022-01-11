@@ -1,0 +1,14 @@
+{
+  "path": "DOCUMENT_DOWNLOAD",
+  "accessControlEntries": [
+    {
+      "role": "USER_ID",
+      "permission": {
+        "read": true,
+        "write": true,
+        "delete": true,
+        "chmod": true
+      }
+    }
+  ]
+}

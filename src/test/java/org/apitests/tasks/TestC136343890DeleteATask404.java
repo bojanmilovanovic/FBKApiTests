@@ -8,12 +8,10 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.io.IOException;
 
 
 @Listeners({TestRailRunner.class})
@@ -39,7 +37,7 @@ public class TestC136343890DeleteATask404 {
         Response response = request.delete("/tasks/"+taskId);
         Assert.assertEquals(response.getStatusCode(), 404, "Status is not 404");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status flag is true when it should be false");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text"), "[Entity not found: Requested task does not exist.]", "Response message text is not correct");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Entity not found: Requested task does not exist.", "Response message text is not correct");
         File schema = new File("src/test/java/org/apitests/Response404Schema.json");
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 

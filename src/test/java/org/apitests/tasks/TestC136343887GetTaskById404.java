@@ -37,7 +37,7 @@ public class TestC136343887GetTaskById404 {
         Response response = request.get("/tasks/"+taskId);
         Assert.assertEquals(response.getStatusCode(), 404, "Status is not 404");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status flag is true when it should be false");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text"), "[Entity not found: Requested task does not exist.]", "Response message text is not correct");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Entity not found: Requested task does not exist.", "Response message text is not correct");
         File schema = new File("src/test/java/org/apitests/Response404Schema.json");
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 

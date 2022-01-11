@@ -7,15 +7,23 @@ import org.apitests.Token;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 
 @Listeners({TestRailRunner.class})
-public class TestC136343847DownloadDocument404 {
+public class TestC136343869DeleteFolder {
+
+    @BeforeMethod(alwaysRun = true)
+    public void testC136343869DeleteFolderPrecondition() throws IOException {
+        TestC136343867CreateFolder testC136343867CreateFolder = new TestC136343867CreateFolder();
+        testC136343867CreateFolder.testC136343867CreateFolder();
+    }
 
     @Test(groups = {"docshare", "tp1"})
-    public void testC136343847DownloadDocument404() {
+    public void testC136343869DeleteFolder() {
 
         // Generate token and set up the host
         Token token = new Token();
@@ -25,13 +33,14 @@ public class TestC136343847DownloadDocument404 {
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
+        request.header("Content-Type", "application/json");
+        request.contentType("multipart/form-data");
+        request.multiPart("path", "/"+Globals.FUNDING_ID+"/"+Globals.FOLDER_NAME);
+        request.multiPart("deleteStrategy", "PHYSICAL");
 
         // Response and assertion
-        Response response = request.get("/documents/download?path=/aaa");
-        Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404");
-        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status flag is true");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document on path /aaa does not exist or is not accessible.", "Message in response is not correct");
+        Response response = request.delete("documents");
+        Assert.assertEquals(response.getStatusCode(), 204, "Status code is not 204.");
 
     }
-
 }

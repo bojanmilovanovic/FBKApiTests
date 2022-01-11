@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 
 
 @Listeners({TestRailRunner.class})
-public class TestC136343847DownloadDocument404 {
+public class TestC136343856LockFolder404 {
 
     @Test(groups = {"docshare", "tp1"})
-    public void testC136343847DownloadDocument404() {
+    public void testC136343856LockFolder404() {
 
         // Generate token and set up the host
         Token token = new Token();
@@ -25,13 +25,16 @@ public class TestC136343847DownloadDocument404 {
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
+        request.header("Content-Type", "application/json");
+        request.contentType("multipart/form-data");
+        request.multiPart("path", "/aaa");
+        request.multiPart("lock", true);
 
         // Response and assertion
-        Response response = request.get("/documents/download?path=/aaa");
-        Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404");
-        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Status flag is true");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document on path /aaa does not exist or is not accessible.", "Message in response is not correct");
+        Response response = request.put("documents/lock");
+        Assert.assertEquals(response.getStatusCode(), 404, "Status code is not 404.");
+        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of the _status flag is not false");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document/Folder on path /aaa does not exist or is not accessible.", "Message text in the response is not correct");
 
     }
-
 }
