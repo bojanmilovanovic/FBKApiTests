@@ -44,7 +44,7 @@ public class TestC136343855LockFolder409 {
         Response response = request.put("documents/lock");
         Assert.assertEquals(response.getStatusCode(), 409, "Status code is not 409.");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of the _status flag is not false");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Folder with path /"+Globals.FUNDING_ID+"/"+Globals.FOLDER_NAME+" already locked by tu_sap2portal", "Message text in the response is not correct");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Folder with path /"+Globals.FUNDING_ID+"/"+Globals.FOLDER_NAME+" already locked by tu_sap2portal.", "Message text in the response is not correct");
 
     }
 }

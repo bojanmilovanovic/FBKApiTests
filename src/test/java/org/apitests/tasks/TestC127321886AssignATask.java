@@ -19,6 +19,7 @@ public class TestC127321886AssignATask {
     @BeforeMethod(alwaysRun = true)
     public void testC127321886AssignATaskPrecondition() throws IOException {
         TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasksPrecondition();
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
     }
 
