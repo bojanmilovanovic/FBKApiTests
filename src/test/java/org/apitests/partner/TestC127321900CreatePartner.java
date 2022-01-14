@@ -31,7 +31,7 @@ public class TestC127321900CreatePartner {
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
-        File file = new File("src/test/java/org/apitests/partner/body/TestUpdatePartnerBody.json");
+        File file = new File("src/test/java/org/apitests/partner/body/TestCreatePartnerBody.json");
         String requestBody = readFile(file);
         requestBody = requestBody.replace("USERUUID", Globals.USER_UUID);
         request.body(requestBody);

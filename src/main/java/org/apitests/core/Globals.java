@@ -16,7 +16,7 @@ public class Globals extends TestListenerAdapter {
     public static String LOGIN_NAME = resourceBundle.getString("loginName");
     public static String PARTNER_ID = resourceBundle.getString("partnerId");
     public static String FUNDING_ID = resourceBundle.getString("fundingId");
-    public static String FUNDING_MONITORING_ID = resourceBundle.getString("fundingMonitoringId");
+    public static String FUNDING_ADDITIONAL_TABS_ID = resourceBundle.getString("fundingAdditionaTabsId");
     public static String FUNDING_EXTERNAL_ID = resourceBundle.getString("fundingExternalId");
     public static String TASK_ID = resourceBundle.getString("taskId");
     public static String ASSIGNEE_ID = resourceBundle.getString("assigneeId");

@@ -45,7 +45,7 @@ public class TestRailRunner extends TestListenerAdapter {
             Globals.LOGIN_NAME = resourceBundleJ.getString("loginName");
             Globals.PARTNER_ID = resourceBundleJ.getString("partnerId");
             Globals.FUNDING_ID = resourceBundleJ.getString("fundingId");
-            Globals.FUNDING_MONITORING_ID = resourceBundleJ.getString("fundingMonitoringId");
+            Globals.FUNDING_ADDITIONAL_TABS_ID = resourceBundleJ.getString("fundingAdditionaTabsId");
             Globals.FUNDING_EXTERNAL_ID = resourceBundleJ.getString("fundingExternalId");
             Globals.TASK_ID = resourceBundleJ.getString("taskId");
             Globals.ASSIGNEE_ID = resourceBundleJ.getString("assigneeId");

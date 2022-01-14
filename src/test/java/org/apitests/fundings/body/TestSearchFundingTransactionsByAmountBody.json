@@ -3,15 +3,15 @@
     "totalAmountRange": {
       "from": {
         "currency": {
-          "code": "CHF"
+          "code": "EUR"
         },
         "value": 1
       },
       "to": {
         "currency": {
-          "code": "CHF"
+          "code": "EUR"
         },
-        "value": 20000
+        "value": 400
       }
     }
   }

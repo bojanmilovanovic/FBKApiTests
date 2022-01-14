@@ -1,4 +1,4 @@
-package org.apitests.fundings;
+package org.apitests.partner;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -11,29 +11,34 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
+
+import static org.testng.reporters.Files.readFile;
+
 
 @Listeners({TestRailRunner.class})
-public class TestC127324221SearchFundingTransactions {
+public class TestC137032762UpdatePartner {
 
-    @Test(groups = {"fundings", "tp4"})
-    public void testC127324221SearchFundingTransactions(){
+    @Test(groups = {"partner", "tp1"})
+    public void testC137032762UpdatePartner() throws IOException {
 
         // Generate token and set up the host
         Token token = new Token();
-        RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/funding/api/v1/"+Globals.TENANT;
+        RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkpartner/api/v1/"+Globals.TENANT;
 
         // Authentication and body set up
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
         request.header("Content-Type", "application/json");
-        File body = new File("src/test/java/org/apitests/fundings/body/TestSearchFindingsHappyPathBody.json");
-        request.body(body);
+        File file = new File("src/test/java/org/apitests/partner/body/TestUpdatePartnerBody.json");
+        String requestBody = readFile(file);
+        request.body(requestBody);
 
         // Response and assertion
-        Response response = request.post("/fundings/transactions/"+Globals.FUNDING_MONITORING_ID+"/search");
-        Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+        Response response = request.put("/partner/0000000016");
+        Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200");
+        Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Status is false");
 
     }
 
