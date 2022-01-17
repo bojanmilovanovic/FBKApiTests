@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "pageResponse": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer"
+        },
+        "numberOfElements": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "numberOfElements",
+        "size",
+        "totalElements",
+        "totalPages"
+      ]
+    },
+    "result": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "contractNo": {
+              "type": "string"
+            },
+            "initialMaturityDate": {
+              "type": "string"
+            },
+            "outstandingArrears": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "currency",
+                "value"
+              ]
+            },
+            "advancePayment": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "value": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "currency",
+                "value"
+              ]
+            },
+            "nextMaturityDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contractNo",
+            "initialMaturityDate",
+            "outstandingArrears",
+            "advancePayment",
+            "nextMaturityDate"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "contractNo": {
+              "type": "string"
+            },
+            "initialMaturityDate": {
+              "type": "string"
+            },
+            "outstandingArrears": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "value": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "currency",
+                "value"
+              ]
+            },
+            "advancePayment": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "currency",
+                "value"
+              ]
+            },
+            "nextMaturityDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contractNo",
+            "initialMaturityDate",
+            "outstandingArrears",
+            "advancePayment",
+            "nextMaturityDate"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "pageResponse",
+    "result"
+  ]
+}

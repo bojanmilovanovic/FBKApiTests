@@ -1,0 +1,484 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "_timestamp": {
+      "type": "string"
+    },
+    "pageResponse": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer"
+        },
+        "numberOfElements": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "number",
+        "numberOfElements",
+        "size",
+        "totalElements",
+        "totalPages"
+      ]
+    },
+    "implicit": {
+      "type": "boolean"
+    },
+    "values": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "permissions": {
+              "type": "object",
+              "properties": {
+                "read": {
+                  "type": "boolean"
+                },
+                "write": {
+                  "type": "boolean"
+                },
+                "submit": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "read",
+                "write",
+                "submit"
+              ]
+            },
+            "reassign": {
+              "type": "boolean"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "permissions",
+            "reassign",
+            "externalId",
+            "name"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "_status",
+    "_timestamp",
+    "pageResponse",
+    "implicit",
+    "values"
+  ]
+}
