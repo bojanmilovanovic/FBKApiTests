@@ -20,6 +20,7 @@ public class TestC136343888DeleteATask {
     @BeforeMethod(alwaysRun = true)
     public void testC136343888DeleteATaskPrecondition() throws IOException {
         TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasksPrecondition();
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
     }
 
