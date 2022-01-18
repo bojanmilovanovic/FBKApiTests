@@ -18,7 +18,7 @@ import java.io.File;
 public class TestC136343890DeleteATask404 {
 
     @Test(groups = {"tasks", "tp1"})
-    public void testC136343888DeleteATask() {
+    public void testC136343890DeleteATask404() {
 
         // Values needed for test
         String taskId = "__ID__64342d343538642d3233326630353764323d302b9d76f939366b03874f5ebc0e8321b3357981c787f6e91557917856f7c99a1bb7e41e664474653dec76f9ad695b476cd1";

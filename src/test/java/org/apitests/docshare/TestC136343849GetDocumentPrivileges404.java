@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 
 
 @Listeners({TestRailRunner.class})
-public class TestC136343853GetDocumentPrivileges404 {
+public class TestC136343849GetDocumentPrivileges404 {
 
     @Test(groups = {"docshare", "tp1"})
-    public void testC136343853GetDocumentPrivileges404() {
+    public void testC136343849GetDocumentPrivileges404() {
 
         // Generate token and set up the host
         Token token = new Token();
