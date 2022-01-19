@@ -23,6 +23,7 @@ public class Globals extends TestListenerAdapter {
     public static String USER_UUID = resourceBundle.getString("userUUID");
     public static String FORMROUTE_ID = resourceBundle.getString("formrouteId");
     public static String SID = resourceBundle.getString("sid");
+    public static String DB_HOST = resourceBundle.getString("dbHost");
     public static String TASK_FORMROUTE_ID = resourceBundle.getString("taskFormRouteId");
     public static String USER_TOKEN = resourceBundle.getString("userToken");
 

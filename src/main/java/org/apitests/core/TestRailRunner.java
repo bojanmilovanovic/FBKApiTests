@@ -52,6 +52,7 @@ public class TestRailRunner extends TestListenerAdapter {
             Globals.USER_UUID = resourceBundleJ.getString("userUUID");
             Globals.FORMROUTE_ID = resourceBundleJ.getString("formrouteId");
             Globals.SID = resourceBundleJ.getString("sid");
+            Globals.DB_HOST = resourceBundleJ.getString("dbHost");
             Globals.TASK_FORMROUTE_ID = resourceBundleJ.getString("taskFormRouteId");
             Globals.USER_TOKEN = resourceBundleJ.getString("userToken");
             Reporter.log("Jenkins run in progress", true);
