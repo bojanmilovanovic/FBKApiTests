@@ -19,9 +19,8 @@ public class TestC129277582CloseTaskNegativeScenario {
 
     @BeforeMethod(alwaysRun = true)
     public void testC129277582CloseTaskNegativeScenarioPrecondition() throws Exception {
-        TestC127321882CreateATaskWithAttachments testC127321882CreateATaskWithAttachments = new TestC127321882CreateATaskWithAttachments();
-        testC127321882CreateATaskWithAttachments.testC127321882CreateATaskWithAttachments();
         TestC129430163GetAllFilteredTasks testC129430163GetAllFilteredTasks = new TestC129430163GetAllFilteredTasks();
+        testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasksPrecondition();
         testC129430163GetAllFilteredTasks.testC129430163GetAllFilteredTasks();
         DBHelper dbHelper = new DBHelper();
         dbHelper.openDBConnectionTasks();

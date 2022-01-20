@@ -6,7 +6,7 @@ import java.sql.*;
 public class DBHelper {
 
     private Connection connection;
-    private static final String URL = "jdbc:oracle:thin:@"+Globals.DB_HOST+":1521:";
+    private String URL = "jdbc:oracle:thin:@"+Globals.DB_HOST+":1521:";
 
     public void openDBConnectionFundings() throws SQLException, ClassNotFoundException {
         String driverName = "oracle.jdbc.driver.OracleDriver";
