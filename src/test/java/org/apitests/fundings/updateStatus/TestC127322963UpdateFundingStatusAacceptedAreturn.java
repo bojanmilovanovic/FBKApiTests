@@ -47,10 +47,4 @@ public class TestC127322963UpdateFundingStatusAacceptedAreturn {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void testC127322963UpdateFundingStatusAacceptedAreturnPostcondition() throws Exception {
-        dbHelper.openDBConnectionFundings();
-        dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
-        dbHelper.closeConnection();
-    }
 }

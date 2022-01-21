@@ -8,7 +8,6 @@ import org.apitests.core.DBHelper;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -50,10 +49,4 @@ public class TestC127323099UpdateFundingStatusBinworkBaborted {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void testC127323099UpdateFundingStatusBinworkBabortedPostcondition() throws Exception {
-        dbHelper.openDBConnectionFundings();
-        dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
-        dbHelper.closeConnection();
-    }
 }

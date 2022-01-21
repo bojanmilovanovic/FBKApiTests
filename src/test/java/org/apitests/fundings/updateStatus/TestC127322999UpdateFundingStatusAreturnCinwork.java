@@ -47,10 +47,4 @@ public class TestC127322999UpdateFundingStatusAreturnCinwork {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void testC127322999UpdateFundingStatusAreturnCinworkPostcondition() throws Exception {
-        dbHelper.openDBConnectionFundings();
-        dbHelper.runUpdate("update fbk_fundings set funding_status = 'A_accepted' where external_id = '"+ Globals.FUNDING_ID+"'");
-        dbHelper.closeConnection();
-    }
 }

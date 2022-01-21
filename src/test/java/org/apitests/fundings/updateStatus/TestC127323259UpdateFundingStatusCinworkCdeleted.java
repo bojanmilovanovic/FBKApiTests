@@ -1,13 +1,11 @@
 package org.apitests.fundings.updateStatus;
 
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apitests.Token;
 import org.apitests.core.DBHelper;
 import org.apitests.core.Globals;
 import org.apitests.core.TestRailRunner;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -42,10 +40,6 @@ public class TestC127323259UpdateFundingStatusCinworkCdeleted {
         String requestBody = "{ \"state\": \""+statusAfter+"\" }";
         request.body(requestBody);
 
-        // Response and assertion
-        Response response = request.put("/fundings/"+Globals.FUNDING_ID+"/state");
-        Assert.assertEquals(response.getStatusCode(), 201);
-        Assert.assertTrue(response.jsonPath().getBoolean("_status"));
-
     }
+
 }
