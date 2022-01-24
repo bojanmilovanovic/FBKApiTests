@@ -3,7 +3,6 @@ package org.apitests.fundings;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.commons.csv.CSVFormat;
 import org.apitests.core.Globals;
 import org.apitests.core.StringHelper;
 import org.apitests.core.TestRailRunner;
@@ -44,8 +43,6 @@ public class TestC137793274ExportFundingPaymentsByContract {
         for(String s: contracts){
             Assert.assertTrue(s.equalsIgnoreCase("0000104004921"), "Contract in CSV file is not the one defined in the filter");
         }
-
-
 
     }
 
