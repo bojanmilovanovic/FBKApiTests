@@ -1,0 +1,18 @@
+{
+  "searchRequest": {
+    "page": {
+      "page": 0,
+      "size": 20
+    },
+    "sort": [
+      {
+        "name": "contractNo",
+        "direction": "ASC"
+      }
+    ],
+    "filter": {
+      "contractNo": "0000104004921"
+    }
+  },
+  "exportColumns": []
+}
