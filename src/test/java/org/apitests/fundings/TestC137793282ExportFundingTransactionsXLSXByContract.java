@@ -4,7 +4,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apitests.core.Globals;
-import org.apitests.core.StringHelper;
 import org.apitests.core.TestRailRunner;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
@@ -15,10 +14,10 @@ import java.io.File;
 import java.io.IOException;
 
 @Listeners({TestRailRunner.class})
-public class TestC137793274ExportFundingPaymentsByContract {
+public class TestC137793282ExportFundingTransactionsXLSXByContract {
 
     @Test(groups = {"fundings", "tp1"})
-    public void testC137793274ExportFundingPaymentsByContract() throws IOException {
+    public void testC137793282ExportFundingTransactionsXLSXByContract() throws IOException {
 
         // Generate token and set up the host
         // User Token is used
@@ -34,15 +33,10 @@ public class TestC137793274ExportFundingPaymentsByContract {
         request.body(body);
 
         // Response and assertion
-        Response response = request.post("/fundings/payments/"+Globals.FUNDING_ADDITIONAL_TABS_ID+"/export?fileType=csv");
+        Response response = request.post("/fundings/transactions/"+Globals.FUNDING_ADDITIONAL_TABS_ID+"/export?fileType=xlsx");
         Assert.assertEquals(response.getStatusCode(), 201, "Status code is not 201");
-        Assert.assertEquals(response.header("content-type"), "text/csv", "Response header is not text/csv");
-        Assert.assertTrue(response.header("content-disposition").endsWith(".csv"),  "Response is not a csv file");
-
-        String[] contracts = StringHelper.getCSVColumnValue(response.asString(), "Contract No.");
-        for(String s: contracts){
-            Assert.assertTrue(s.equalsIgnoreCase("0000104004921"), "Contract in CSV file is not the one defined in the filter");
-        }
+        Assert.assertEquals(response.header("content-type"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Response header is not excel xlsx");
+        Assert.assertTrue(response.header("content-disposition").endsWith(".xlsx"),  "Response is not a xlsx file");
 
     }
 

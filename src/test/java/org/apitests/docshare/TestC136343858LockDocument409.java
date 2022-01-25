@@ -40,7 +40,6 @@ public class TestC136343858LockDocument409 {
 
         // Response and assertion
         Response response = request.put("documents/lock");
-        response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 409, "Status code is not 409.");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of the status flag is true");
         Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Document with path "+"/"+Globals.FUNDING_ID+"/"+"TestFileDocShare.pdf"+" already locked by tu_sap2portal.", "Message text in the response is not correct");
