@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "_timestamp": {
+      "type": "string"
+    },
+    "messageId": {
+      "type": "string"
+    },
+    "applicationNo": {
+      "type": "string"
+    },
+    "sender": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "attachments": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "mimeType": {
+              "type": "string"
+            },
+            "downloadPath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "mimeType",
+            "downloadPath"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "_status",
+    "_timestamp",
+    "messageId",
+    "applicationNo",
+    "sender",
+    "subject",
+    "body",
+    "attachments"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_status": {
+      "type": "boolean"
+    },
+    "_messages": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "category",
+            "code",
+            "text"
+          ]
+        }
+      ]
+    },
+    "_timestamp": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "_status",
+    "_messages",
+    "_timestamp",
+    "id"
+  ]
+}
