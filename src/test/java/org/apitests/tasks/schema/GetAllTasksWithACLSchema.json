@@ -118,7 +118,6 @@
           },
           "required": [
             "ownerEnterpriseCustomerId",
-            "partnerNo",
             "customerNo",
             "relatedType",
             "subject",
@@ -242,7 +241,6 @@
           },
           "required": [
             "ownerEnterpriseCustomerId",
-            "partnerNo",
             "customerNo",
             "relatedType",
             "externalId",
@@ -372,7 +370,6 @@
           },
           "required": [
             "ownerEnterpriseCustomerId",
-            "partnerNo",
             "customerNo",
             "relatedType",
             "subject",
