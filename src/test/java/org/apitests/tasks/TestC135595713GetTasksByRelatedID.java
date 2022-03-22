@@ -36,7 +36,7 @@ public class TestC135595713GetTasksByRelatedID {
     }
 
 
-    @Test(groups = {"tasks", "tp1"})
+    @Test(groups = {"tasks", "tp1"}, enabled = false)
     public void testC135595713GetTasksByRelatedID() throws IOException {
 
         // Generate token and set up the host

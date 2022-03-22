@@ -18,7 +18,7 @@ import static org.testng.reporters.Files.readFile;
 @Listeners({TestRailRunner.class})
 public class TestC135595715GetTasksByRelatedType {
 
-    @Test(groups = {"tasks", "tp1"})
+    @Test(groups = {"tasks", "tp1"}, enabled = false)
     public void testC135595715GetTasksByRelatedType() throws IOException {
 
         // Generate token and set up the host
