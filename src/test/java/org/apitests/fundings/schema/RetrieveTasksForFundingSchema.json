@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "assigneeId": {
+              "type": "string"
+            },
+            "assigneeName": {
+              "type": "string"
+            },
+            "assigneeCompanyName": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "category",
+            "assigneeId",
+            "assigneeName",
+            "assigneeCompanyName",
+            "resubmissionDate",
+            "deadline"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "category",
+            "resubmissionDate",
+            "deadline"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "category",
+            "resubmissionDate",
+            "deadline"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "category",
+            "resubmissionDate",
+            "deadline"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "subject": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "assigneeId": {
+              "type": "string"
+            },
+            "assigneeName": {
+              "type": "string"
+            },
+            "assigneeCompanyName": {
+              "type": "string"
+            },
+            "resubmissionDate": {
+              "type": "string"
+            },
+            "deadline": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "subject",
+            "category",
+            "assigneeId",
+            "assigneeName",
+            "assigneeCompanyName",
+            "resubmissionDate",
+            "deadline"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "result"
+  ]
+}

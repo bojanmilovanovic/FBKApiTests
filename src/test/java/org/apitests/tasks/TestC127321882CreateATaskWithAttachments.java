@@ -24,10 +24,9 @@ public class TestC127321882CreateATaskWithAttachments {
         // Generate token and set up the host
         Token token = new Token();
         RestAssured.baseURI = Globals.PROTOCOL+"://"+Globals.HOST+"/fbkfundings/api/v1/"+Globals.TENANT;
-        String applicationNo = Globals.FUNDING_ID;
         File file = new File("src/test/java/org/apitests/tasks/body/TestCreateATaskBody.json");
         String requestBody = Files.readFile(file);
-        requestBody = requestBody.replace("FUNDING_ID", applicationNo);
+        requestBody = requestBody.replace("FUNDING_ID", Globals.FUNDING_ID);
         File attachmentFile = new File("src/test/java/org/apitests/tasks/testfiles/TestFile.pdf");
         String date = TimeHelper.getNextWorkingDay();
 
@@ -35,7 +34,6 @@ public class TestC127321882CreateATaskWithAttachments {
         RequestSpecification request = RestAssured.given();
         request.auth().oauth2(token.getTokenValue());
         request.header("Accept", "application/json");
-        request.header("Content-Type", "application/json");
         request.contentType("multipart/form-data");
         request.multiPart("attachmentName", "testAttachment");
         request.multiPart("attachmentMimeType", "application/pdf");
@@ -49,8 +47,8 @@ public class TestC127321882CreateATaskWithAttachments {
 
         // Response and assertion
         Response response = request.post("/taskbulk");
-        Assert.assertEquals(response.getStatusCode(), 201);
-        Assert.assertTrue(response.jsonPath().getBoolean("_status"));
+        Assert.assertEquals(response.getStatusCode(), 201, "Status code should be 201");
+        Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Value of the _status flag in the response should be true");
 
 
     }

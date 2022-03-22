@@ -42,6 +42,7 @@ public class TestC136343848GetDocumentPrivileges {
         Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Value of _status flag is not true");
         File schema = new File("src/test/java/org/apitests/docshare/schema/GetDocumentPrivilegesSchema.json");
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
+
     }
 
 }
