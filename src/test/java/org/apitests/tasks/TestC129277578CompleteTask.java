@@ -27,7 +27,7 @@ public class TestC129277578CompleteTask {
         dbHelper.closeConnection();
     }
 
-    @Test(groups = {"tasks", "tp1"}, priority = 2, invocationCount = 400)
+    @Test(groups = {"tasks", "tp1"}, priority = 2)
     public void testC129277578CompleteTask() {
 
         // Generate token and set up the host
