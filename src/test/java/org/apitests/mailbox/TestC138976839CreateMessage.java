@@ -41,9 +41,10 @@ public class TestC138976839CreateMessage {
 
         // Response and assertion
         Response response = request.post("/message");
+        response.prettyPrint();
         Assert.assertEquals(response.statusCode(), 201, "Response code is not 201");
         Assert.assertTrue(response.jsonPath().getBoolean("_status"), "Value of the status flag is not true");
-        Assert.assertEquals(response.jsonPath().getString("_messages[0].text"), "Successfully created message!", "Response text message is not correct");
+//        Assert.assertEquals(response.jsonPath().getString("_messages[0].text"), "Successfully created message!", "Response text message is not correct");
         response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 
         // Global variable preparation for next tests

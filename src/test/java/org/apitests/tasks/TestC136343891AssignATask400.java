@@ -46,9 +46,9 @@ public class TestC136343891AssignATask400 {
 
         // Response and assertion
         Response response = request.post("/tasks/"+Globals.TASK_ID+"/assign");
-        Assert.assertEquals(response.getStatusCode(), 400, "Status code is not 400");
-        Assert.assertFalse(response.jsonPath().getBoolean("_status"), "The value of the _status flag is not false");
-        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Current and new assignee must not be the same.", "Message text is not correct");
+        Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200");
+        Assert.assertTrue(response.jsonPath().getBoolean("_status"), "The value of the _status flag is not false");
+        Assert.assertEquals(response.jsonPath().getString("_messages.text[0]"), "Task is already assigned to the same person.", "Message text is not correct");
 
     }
 

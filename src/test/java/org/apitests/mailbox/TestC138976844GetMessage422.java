@@ -28,6 +28,7 @@ public class TestC138976844GetMessage422 {
 
         // Response and assertion
         Response response = request.get("/message/aaa");
+        response.prettyPrint();
         Assert.assertEquals(response.statusCode(), 422, "Response code is not 422");
         Assert.assertFalse(response.jsonPath().getBoolean("_status"), "Value of the status flag is not false");
         Assert.assertEquals(response.jsonPath().getString("_messages[0].text"), "Failed to fetch message data for messageId: aaa. Please try again later.", "Response message is not correct");
