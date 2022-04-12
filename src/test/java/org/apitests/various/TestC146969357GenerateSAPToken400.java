@@ -24,13 +24,15 @@ public class TestC146969357GenerateSAPToken400 {
 
         // Authentication and body set up
         RequestSpecification request = RestAssured.given();
+        request.contentType("multipart/form-data");
+        request.multiPart("grant_type", "secret");
         request.auth().basic(username, password);
 
         // Response and assertion
         Response response = request.post("/oauth/token");
         Assert.assertEquals(response.getStatusCode(), 400, "Response code is not 400");
-        Assert.assertEquals(response.jsonPath().getString("error"), "invalid_request", "Returned error should be invalid_request");
-        Assert.assertEquals(response.jsonPath().getString("error_description"), "Missing grant type", "Returned error_description should be Missing grant type");
+        Assert.assertEquals(response.jsonPath().getString("error"), "unsupported_grant_type", "Returned error is not correct");
+        Assert.assertEquals(response.jsonPath().getString("error_description"), "Unsupported grant type: secret", "Returned error_description is not correct");
 
     }
 

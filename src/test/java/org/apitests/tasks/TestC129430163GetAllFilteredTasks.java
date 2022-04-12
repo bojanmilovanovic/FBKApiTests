@@ -48,7 +48,7 @@ public class TestC129430163GetAllFilteredTasks {
         int listSize = response.jsonPath().getInt("pageResponse.size");
         String subject = "test_with_attachment";
         for(int i=0; i<listSize; i++){
-            Assert.assertEquals(response.jsonPath().getString("tasks["+i+"].subject"), subject, "Subject of retrieved task is not according to the one set in filter");
+            Assert.assertTrue(response.jsonPath().getString("tasks["+i+"].subject").contains(subject), "Subject of retrieved task is not according to the one set in filter");
         }
 
         // Global variable preparation for next tests
