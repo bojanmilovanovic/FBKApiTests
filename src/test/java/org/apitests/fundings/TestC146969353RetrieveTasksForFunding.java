@@ -36,8 +36,8 @@ public class TestC146969353RetrieveTasksForFunding {
         // Response and assertion
         Response response = request.post("/fundings/"+Globals.FUNDING_ID+"/tasks");
         Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200");
-        File schema = new File("src/test/java/org/apitests/fundings/schema/RetrieveTasksForFundingSchema.json");
-        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
+//        File schema = new File("src/test/java/org/apitests/fundings/schema/RetrieveTasksForFundingSchema.json");
+//        response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(schema));
 
     }
 
